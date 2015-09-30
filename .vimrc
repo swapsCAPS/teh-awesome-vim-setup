@@ -1,3 +1,12 @@
+" Vundle stuffs:
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+
 " All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
 " the call to :runtime you can find below.  If you wish to change any of those
 " settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
@@ -57,8 +66,4 @@ endif
 :colorscheme darcula 
 " :set tabstop=4 " not necessary with #filetype plugin indent on
 set t_Co=256
-" Vundle stuffs:
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+
