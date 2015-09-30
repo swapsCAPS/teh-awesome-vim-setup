@@ -57,3 +57,8 @@ endif
 :colorscheme darcula 
 " :set tabstop=4 " not necessary with #filetype plugin indent on
 set t_Co=256
+" Vundle stuffs:
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
