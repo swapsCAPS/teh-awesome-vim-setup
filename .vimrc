@@ -23,6 +23,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Place plugins here:
 Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -77,6 +78,6 @@ endif
 " My own stuff:
 :set number
 :colorscheme darcula 
-" :set tabstop=4 " not necessary with #filetype plugin indent on
+:set tabstop=4 " not necessary with #filetype plugin indent on
 set t_Co=256
 
