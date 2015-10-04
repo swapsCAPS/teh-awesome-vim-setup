@@ -13,7 +13,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=/home/stofstik/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -22,11 +22,13 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Place plugins here:
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
-Plugin 'hail2u/vim-css3-syntax'
+" Plugin 'hail2u/vim-css3-syntax'
 Plugin 'mattn/emmet-vim' " html plugin
-Plugin 'maksimr/vim-jsbeautify'
+" Plugin 'maksimr/vim-jsbeautify'
+Plugin 'bronson/vim-trailing-whitespace' " to fix whitespace errors call :FixWhiteSpace
+Plugin 'sickill/vim-pasta' " remaps p and P to context aware pasting for proper indentation
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,11 +67,11 @@ endif
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
+set showmatch	" Show matching brackets.
+set ignorecase	" Do case insensitive matching
+set smartcase	" Do smart case matching
+set incsearch	" Incremental search
+set autowrite	" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 
@@ -81,8 +83,8 @@ endif
 " My own stuff:
 :set number
 :set relativenumber
-:colorscheme darcula 
-:set tabstop=4 
+:colorscheme darcula
+:set tabstop=4
 :set shiftwidth=4
 :set t_Co=256
 :iabbrev </ </<C-X><C-O>
