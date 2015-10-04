@@ -80,7 +80,16 @@ endif
 
 " My own stuff:
 :set number
+:set relativenumber
 :colorscheme darcula 
-" :set tabstop=4 " not necessary with #filetype plugin indent on
+:set tabstop=4 
+:set shiftwidth=4
 :set t_Co=256
 :iabbrev </ </<C-X><C-O>
+:set omnifunc=syntaxcomplete#Complete
+
+" Disable arrow keys in insert mode
+noremap <Up>	<Nop>
+noremap <Down>	<Nop>
+noremap <Left>	<Nop>
+noremap <Right>	<Nop>
