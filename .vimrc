@@ -23,12 +23,15 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Place plugins here:
 " Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 " Plugin 'hail2u/vim-css3-syntax'
 Plugin 'mattn/emmet-vim' " html plugin
 " Plugin 'maksimr/vim-jsbeautify'
 Plugin 'bronson/vim-trailing-whitespace' " to fix whitespace errors call :FixWhiteSpace
 Plugin 'sickill/vim-pasta' " remaps p and P to context aware pasting for proper indentation
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -90,8 +93,25 @@ endif
 :iabbrev </ </<C-X><C-O>
 :set omnifunc=syntaxcomplete#Complete
 
-" Disable arrow keys in insert mode
+" Disable arrow keys in normal mode
 noremap <Up>	<Nop>
 noremap <Down>	<Nop>
 noremap <Left>	<Nop>
 noremap <Right>	<Nop>
+
+inoremap ( ()<Esc>i
+inoremap { {}<Esc>i
+inoremap [ []<Esc>i
+inoremap < <><Esc>i
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+
+" Syntastic stuff
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
