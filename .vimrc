@@ -32,6 +32,9 @@ Plugin 'mattn/emmet-vim' " html plugin
 Plugin 'bronson/vim-trailing-whitespace' " to fix whitespace errors call :FixWhiteSpace
 Plugin 'sickill/vim-pasta' " remaps p and P to context aware pasting for proper indentation
 Plugin 'tpope/vim-surround'
+Plugin 'lfilho/cosco.vim'
+Plugin 'Townk/vim-autoclose'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,18 +96,19 @@ endif
 :iabbrev </ </<C-X><C-O>
 :set omnifunc=syntaxcomplete#Complete
 
-" Disable arrow keys in normal mode
-noremap <Up>	<Nop>
-noremap <Down>	<Nop>
-noremap <Left>	<Nop>
-noremap <Right>	<Nop>
+autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
-inoremap ( ()<Esc>i
-inoremap { {}<Esc>i
-inoremap [ []<Esc>i
-inoremap < <><Esc>i
-inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
+" Disable arrow keys in normal mode
+nnoremap <Up>	<Nop>
+nnoremap <Down>	<Nop>
+nnoremap <Left>	<Nop>
+nnoremap <Right>	<Nop>
+" Disable arrow keys in insert mode
+inoremap <Up>	<Nop>
+inoremap <Down>	<Nop>
+inoremap <Left>	<Nop>
+inoremap <Right>	<Nop>
 
 " Syntastic stuff
 set statusline+=%#warningmsg#
@@ -115,3 +119,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" Don't forget to install jshint or some other checker like this:
+" sudo npm install -g jshint
+" sudo echo "PATH=\$PATH:/usr/local/lib/node_modules/jshint" >> ~/.profile
+
+" Airline stuff:
+set laststatus=2
