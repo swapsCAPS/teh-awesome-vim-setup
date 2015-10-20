@@ -35,6 +35,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'lfilho/cosco.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,6 +96,7 @@ endif
 :set t_Co=256
 :iabbrev </ </<C-X><C-O>
 :set omnifunc=syntaxcomplete#Complete
+:set colorcolumn=80
 
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
