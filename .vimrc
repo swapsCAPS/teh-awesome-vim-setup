@@ -28,7 +28,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 " Plugin 'hail2u/vim-css3-syntax'
 Plugin 'mattn/emmet-vim' " html plugin
-" Plugin 'maksimr/vim-jsbeautify'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 Plugin 'bronson/vim-trailing-whitespace' " to fix whitespace errors call :FixWhiteSpace
 Plugin 'sickill/vim-pasta' " remaps p and P to context aware pasting for proper indentation
 Plugin 'tpope/vim-surround'
@@ -129,3 +130,11 @@ let g:syntastic_check_on_wq = 0
 
 " Airline stuff:
 set laststatus=2
+
+" JsBeautify stuff, bind Ctrl-F to beautify while in visual mode
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
