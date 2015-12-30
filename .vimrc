@@ -33,20 +33,32 @@ Plugin 'mattn/emmet-vim'
 " Beautify js, json, html, css, etc
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify' " Used by vim-jsbeautify
+" Jade beautifier and 2 space indentation
+Plugin 'digitaltoad/vim-jade'
 
 " to fix whitespace errors call :FixWhiteSpace
 Plugin 'bronson/vim-trailing-whitespace'
 
-" remaps p and P to context aware pasting for proper indentation
-" Plugin 'sickill/vim-pasta'
+" Surround words with tags, etc. For example press 'ysiw "' to surround inner
+" word with "
 Plugin 'tpope/vim-surround'
+
+" Easy semicolon appending with '\ ;' whereever on a line
 Plugin 'lfilho/cosco.vim'
+
+" Auto close brackets, quotes, etc.
 Plugin 'Townk/vim-autoclose'
+
+" Info line at the bottom of the screen
 Plugin 'bling/vim-airline'
+
+" Fuzzy finder (quick file finder) press 'ctrl-p'! :)
 Plugin 'kien/ctrlp.vim'
+
+" Auto completer
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'digitaltoad/vim-jade'
+Plugin 'ternjs/tern_for_vim' " TODO check if neccesary
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
