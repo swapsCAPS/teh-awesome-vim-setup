@@ -22,16 +22,23 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Place plugins here:
-" Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-" Plugin 'hail2u/vim-css3-syntax'
-Plugin 'mattn/emmet-vim' " html plugin
+Plugin 'mattn/emmet-vim'
+" To use emmet: in an empty file type html:5 then press 'ctrl-y ,' Tada!
+" Or visual select then press 'ctrl-y ,' and type a tag to surround selection
+" For multiple tags use div>ul>li* for example
+
+" Beautify js, json, html, css, etc
 Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
-Plugin 'bronson/vim-trailing-whitespace' " to fix whitespace errors call :FixWhiteSpace
-Plugin 'sickill/vim-pasta' " remaps p and P to context aware pasting for proper indentation
+Plugin 'einars/js-beautify' " Used by vim-jsbeautify
+
+" to fix whitespace errors call :FixWhiteSpace
+Plugin 'bronson/vim-trailing-whitespace'
+
+" remaps p and P to context aware pasting for proper indentation
+" Plugin 'sickill/vim-pasta'
 Plugin 'tpope/vim-surround'
 Plugin 'lfilho/cosco.vim'
 Plugin 'Townk/vim-autoclose'
@@ -96,10 +103,14 @@ endif
 :colorscheme darcula
 :set tabstop=4
 :set shiftwidth=4
+:set expandtab
+:set smarttab
 :set t_Co=256
 :iabbrev </ </<C-X><C-O>
 :set omnifunc=syntaxcomplete#Complete
 :set colorcolumn=80
+
+autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab
 
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
