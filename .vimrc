@@ -22,8 +22,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Place plugins here:
+
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
+
+" Syntax checker
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 " To use emmet: in an empty file type html:5 then press 'ctrl-y ,' Tada!
@@ -62,9 +65,6 @@ Plugin 'ternjs/tern_for_vim' " TODO check if neccesary
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-
-
 
 " Uncomment the next line to make Vim more Vi-compatible
 " NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
@@ -123,7 +123,6 @@ endif
 :set colorcolumn=80
 
 autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab
-
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
@@ -137,11 +136,6 @@ inoremap <Up>	<Nop>
 inoremap <Down>	<Nop>
 inoremap <Left>	<Nop>
 inoremap <Right>	<Nop>
-
-" Syntastic stuff
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -160,4 +154,3 @@ autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
-
