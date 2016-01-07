@@ -58,7 +58,9 @@ Plugin 'bling/vim-airline'
 " Fuzzy finder (quick file finder) press 'ctrl-p'! :)
 Plugin 'kien/ctrlp.vim'
 
-" Auto completer
+" Auto completer:
+" Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
+" install.py --tern-completer'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim' " TODO check if neccesary
 
