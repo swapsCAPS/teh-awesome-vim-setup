@@ -123,6 +123,7 @@ endif
 :iabbrev </ </<C-X><C-O>
 :set omnifunc=syntaxcomplete#Complete
 :set colorcolumn=80
+:set pastetoggle=<F2>
 
 autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
