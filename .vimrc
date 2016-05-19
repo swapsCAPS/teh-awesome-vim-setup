@@ -67,6 +67,12 @@ Plugin 'ternjs/tern_for_vim' " TODO check if neccesary
 " Git wrapper for vim : )
 Plugin 'tpope/vim-fugitive'
 
+" Solarized theme
+Plugin 'altercation/vim-colors-solarized'
+
+" Code outline viewer
+Plugin 'majutsushi/tagbar'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -81,10 +87,6 @@ filetype plugin indent on    " required
 if has("syntax")
   syntax on
 endif
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -107,7 +109,6 @@ set smartcase	" Do smart case matching
 set incsearch	" Incremental search
 set autowrite	" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -117,16 +118,24 @@ endif
 " My own stuff:
 :set number
 :set relativenumber
-:colorscheme darcula
+:set background=dark
+:colorscheme solarized
+:syntax enable
 :set tabstop=4
 :set shiftwidth=4
 :set expandtab
 :set smarttab
-:set t_Co=256
 :iabbrev </ </<C-X><C-O>
 :set omnifunc=syntaxcomplete#Complete
 :set colorcolumn=80
 :set pastetoggle=<F2>
+
+" Mouse fix for tmux and vim
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 
 autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
@@ -164,3 +173,19 @@ autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" Mustache auto completion
+let g:mustache_abbreviations = 1
+
+" Set folding stuff
+set foldmethod=syntax
+set foldlevelstart=1
+
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
