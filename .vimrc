@@ -129,6 +129,7 @@ endif
 :set omnifunc=syntaxcomplete#Complete
 :set colorcolumn=80
 :set pastetoggle=<F2>
+:set clipboard=unnamed
 
 " Mouse fix for tmux and vim
 set mouse+=a
@@ -179,13 +180,3 @@ let g:mustache_abbreviations = 1
 
 " Set folding stuff
 set foldmethod=syntax
-set foldlevelstart=1
-
-let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
-let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
