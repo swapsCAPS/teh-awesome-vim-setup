@@ -73,6 +73,9 @@ Plugin 'altercation/vim-colors-solarized'
 " Code outline viewer
 Plugin 'majutsushi/tagbar'
 
+" Navigate vim & tmux panes with hjkl
+Plugin 'christoomey/vim-tmux-navigator'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
