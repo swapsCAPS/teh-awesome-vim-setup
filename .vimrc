@@ -52,6 +52,9 @@ Plugin 'lfilho/cosco.vim'
 " Auto close brackets, quotes, etc.
 Plugin 'Townk/vim-autoclose'
 
+" Auto close html, xml, etc.
+" Plugin 'alvan/vim-closetag'
+
 " Info line at the bottom of the screen
 Plugin 'bling/vim-airline'
 
@@ -62,7 +65,10 @@ Plugin 'kien/ctrlp.vim'
 " Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
 " install.py --tern-completer'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'ternjs/tern_for_vim' " TODO check if neccesary
+Plugin 'ternjs/tern_for_vim'
+
+" Improved javascript syntax highlighting and indentation
+Plugin 'pangloss/vim-javascript'
 
 " Git wrapper for vim : )
 Plugin 'tpope/vim-fugitive'
@@ -181,5 +187,13 @@ autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 " Mustache auto completion
 let g:mustache_abbreviations = 1
 
-" Set folding stuff
-set foldmethod=syntax
+" Auto close tags for these filetypes
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+
+" vim-javascript stuff
+let g:javascript_enable_domhtmlcss = 1
+" set foldmethod=syntax " Please note this can have a dramatic effect on performance and because it is a global vim option, we do not set it ourselves.
+
+" Mappings to toggle folds
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
