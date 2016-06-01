@@ -70,6 +70,9 @@ Plugin 'ternjs/tern_for_vim'
 " Improved javascript syntax highlighting and indentation
 Plugin 'pangloss/vim-javascript'
 
+" Typescript Syntax for Vim
+Plugin 'leafgarland/typescript-vim'
+
 " Git wrapper for vim : )
 Plugin 'tpope/vim-fugitive'
 
