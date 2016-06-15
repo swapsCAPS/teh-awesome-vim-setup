@@ -85,6 +85,9 @@ Plugin 'majutsushi/tagbar'
 " Navigate vim & tmux panes with hjkl
 Plugin 'christoomey/vim-tmux-navigator'
 
+" Sublime style minimap
+Plugin 'severin-lemaignan/vim-minimap'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
