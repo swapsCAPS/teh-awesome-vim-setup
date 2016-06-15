@@ -88,6 +88,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 " Sublime style minimap
 Plugin 'severin-lemaignan/vim-minimap'
 
+" HARD MODE
+Plugin 'wikitopian/hardmode'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -145,6 +148,7 @@ endif
 :set colorcolumn=80
 :set pastetoggle=<F2>
 :set clipboard=unnamed
+:set timeoutlen=1000 ttimeoutlen=0
 
 " Mouse fix for tmux and vim
 set mouse+=a
@@ -166,7 +170,7 @@ nnoremap <Right>	<Nop>
 inoremap <Up>	<Nop>
 inoremap <Down>	<Nop>
 inoremap <Left>	<Nop>
-inoremap <Right>	<Nop>
+inoremap <Right>    <Nop>
 
 " Syntastic stuff
 set statusline+=%#warningmsg#
