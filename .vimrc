@@ -85,6 +85,9 @@ Plugin 'majutsushi/tagbar'
 " Navigate vim & tmux panes with hjkl
 Plugin 'christoomey/vim-tmux-navigator'
 
+" Sublime style minimap
+Plugin 'severin-lemaignan/vim-minimap'
+
 " HARD MODE
 Plugin 'wikitopian/hardmode'
 
