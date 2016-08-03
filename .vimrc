@@ -190,6 +190,10 @@ let g:syntastic_check_on_wq = 0
 " Airline stuff:
 set laststatus=2
 
+" Nerd commenter stuff
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
+
 " JsBeautify stuff, bind Ctrl-F to beautify while in visual mode
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType typescript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
