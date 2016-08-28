@@ -153,6 +153,8 @@ endif
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 
+map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
 " Mouse fix for tmux and vim
 set mouse+=a
 if &term =~ '^screen'
