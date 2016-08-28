@@ -154,6 +154,11 @@ set t_Co=256
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 
+" Ensure transparent background
+hi Normal ctermbg=none
+highlight NonText ctermbg=none
+
+" Easily toggle background color
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
 " Mouse fix for tmux and vim
