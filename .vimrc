@@ -154,6 +154,10 @@ set t_Co=256
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 
+" Save all temp madness to one dir
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
 " Ensure transparent background
 hi Normal ctermbg=none
 highlight NonText ctermbg=none
@@ -169,6 +173,8 @@ if &term =~ '^screen'
 endif
 
 autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab
+
+" Use leader ; to place a semicolon at the end of the line
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
@@ -202,7 +208,15 @@ set laststatus=2
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 
-" JsBeautify stuff, bind Ctrl-F to beautify while in visual mode
+" JsBeautify stuff
+" Bind Ctrl-F to beautify whole file in any mode
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType typescript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" Bind Ctrl-F to beautify selection in visual mode
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType typescript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
