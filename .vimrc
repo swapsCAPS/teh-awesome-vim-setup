@@ -59,7 +59,7 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'bling/vim-airline'
 
 " Fuzzy finder (quick file finder) press 'ctrl-p'! :)
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Auto completer:
 " Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
