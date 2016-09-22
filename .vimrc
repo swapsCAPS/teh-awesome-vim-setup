@@ -94,6 +94,10 @@ Plugin 'wikitopian/hardmode'
 " Highlight color codes
 Plugin 'ap/vim-css-color'
 
+" base 16 colorschemes : )
+Plugin 'chriskempson/base16-vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -140,8 +144,7 @@ endif
 :set number
 :set relativenumber
 set t_Co=256
-:set background=dark
-:colorscheme solarized
+:colorscheme base16-default-dark
 :syntax enable
 :set tabstop=4
 :set shiftwidth=4
@@ -153,6 +156,11 @@ set t_Co=256
 :set pastetoggle=<F2>
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
