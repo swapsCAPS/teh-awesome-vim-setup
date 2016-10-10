@@ -144,7 +144,6 @@ endif
 :set number
 :set relativenumber
 set t_Co=256
-:colorscheme base16-default-dark
 :syntax enable
 :set tabstop=4
 :set shiftwidth=4
@@ -157,6 +156,9 @@ set t_Co=256
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 
+" Ctrl-A is used for tmux, but we want vim's inc dec functionality
+nnoremap <c-c> <c-a>
+
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -165,10 +167,6 @@ endif
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Ensure transparent background
-hi Normal ctermbg=none
-highlight NonText ctermbg=none
 
 " Easily toggle background color
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
@@ -223,6 +221,7 @@ autocmd FileType typescript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType erb noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " Bind Ctrl-F to beautify selection in visual mode
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
@@ -230,6 +229,7 @@ autocmd FileType typescript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType erb vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Mustache auto completion
