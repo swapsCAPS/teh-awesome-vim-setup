@@ -138,7 +138,7 @@ endif
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set showcmd		" Show (partial) command in status line.
-"set showmatch	" Show matching brackets.
+set showmatch	" Show matching brackets.
 set ignorecase	" Do case insensitive matching
 set smartcase	" Do smart case matching
 set incsearch	" Incremental search
@@ -153,7 +153,7 @@ endif
 " My own stuff:
 :set number
 :set relativenumber
-:set t_Co=256
+set t_Co=256
 :colorscheme base16-default-dark
 :syntax enable
 :set tabstop=4
@@ -167,6 +167,9 @@ endif
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 
+" Ctrl-A is used for tmux, but we want vim's inc dec functionality
+nnoremap <c-c> <c-a>
+
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -175,10 +178,6 @@ endif
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Ensure transparent background
-hi Normal ctermbg=none
-highlight NonText ctermbg=none
 
 " Easily toggle background color
 map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
