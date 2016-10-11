@@ -97,6 +97,16 @@ Plugin 'ap/vim-css-color'
 " base 16 colorschemes : )
 Plugin 'chriskempson/base16-vim'
 
+" Indentation
+Plugin 'tpope/vim-sleuth'
+
+" CSS syntax support
+Plugin 'hail2u/vim-css3-syntax.git'
+
+" All teh snippets!
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -128,7 +138,7 @@ endif
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set showcmd		" Show (partial) command in status line.
-set showmatch	" Show matching brackets.
+"set showmatch	" Show matching brackets.
 set ignorecase	" Do case insensitive matching
 set smartcase	" Do smart case matching
 set incsearch	" Incremental search
@@ -143,7 +153,7 @@ endif
 " My own stuff:
 :set number
 :set relativenumber
-set t_Co=256
+:set t_Co=256
 :colorscheme base16-default-dark
 :syntax enable
 :set tabstop=4
