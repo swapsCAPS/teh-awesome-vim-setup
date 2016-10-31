@@ -109,6 +109,9 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
+Plugin 'vim-ruby/vim-ruby'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -167,6 +170,10 @@ set t_Co=256
 :set pastetoggle=<F2>
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
+:set cursorline
+
+" do end matching for ruby
+runtime macros/matchit.vim
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <c-c> <c-a>
