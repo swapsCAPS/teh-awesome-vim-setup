@@ -57,7 +57,8 @@ Plugin 'Townk/vim-autoclose'
 " Plugin 'alvan/vim-closetag'
 
 " Info line at the bottom of the screen
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Fuzzy finder (quick file finder) press 'ctrl-p'! :)
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -70,6 +71,8 @@ Plugin 'ternjs/tern_for_vim'
 
 " Improved javascript syntax highlighting and indentation
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
 
 " Typescript Syntax for Vim
 Plugin 'leafgarland/typescript-vim'
@@ -222,12 +225,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-" Don't forget to install jshint or some other checker like this:
-" sudo npm install -g jshint
-" sudo echo "PATH=\$PATH:/usr/local/lib/node_modules/jshint" >> ~/.profile
+" let g:syntastic_debug = 3
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Airline stuff:
 set laststatus=2
+let g:airline_theme='base16'
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims = 1
@@ -249,6 +252,9 @@ autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
+" Use jsx in js files as well
+let g:jsx_ext_required = 0
+
 " Mustache auto completion
 let g:mustache_abbreviations = 1
 
@@ -262,3 +268,4 @@ let g:javascript_enable_domhtmlcss = 1
 " Mappings to toggle folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+
