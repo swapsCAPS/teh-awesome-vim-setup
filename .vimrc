@@ -29,10 +29,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax checker
 Plugin 'scrooloose/syntastic'
+
+" Emmet for vim
 Plugin 'mattn/emmet-vim'
-" To use emmet: in an empty file type html:5 then press 'ctrl-y ,' Tada!
-" Or visual select then press 'ctrl-y ,' and type a tag to surround selection
-" For multiple tags use div>ul>li* for example
 
 " Beautify js, json, html, css, etc
 Plugin 'maksimr/vim-jsbeautify'
@@ -43,8 +42,7 @@ Plugin 'digitaltoad/vim-jade'
 " to fix whitespace errors call :FixWhiteSpace
 Plugin 'bronson/vim-trailing-whitespace'
 
-" Surround words with tags, etc. For example press 'ysiw "' to surround inner
-" word with "
+" Thanks Tim Pope
 Plugin 'tpope/vim-surround'
 
 " Easy semicolon appending with '\ ;' whereever on a line
@@ -80,12 +78,6 @@ Plugin 'leafgarland/typescript-vim'
 " Git wrapper for vim : )
 Plugin 'tpope/vim-fugitive'
 
-" Solarized theme
-Plugin 'altercation/vim-colors-solarized'
-
-" Code outline viewer
-Plugin 'majutsushi/tagbar'
-
 " Navigate vim & tmux panes with hjkl
 Plugin 'christoomey/vim-tmux-navigator'
 
@@ -101,7 +93,7 @@ Plugin 'ap/vim-css-color'
 " base 16 colorschemes : )
 Plugin 'chriskempson/base16-vim'
 
-" Indentation
+" Indentation based on what current file uses
 Plugin 'tpope/vim-sleuth'
 
 " CSS syntax support
@@ -136,21 +128,15 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-" if has("autocmd")
-"   filetype plugin indent on
-" endif
-
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
-set showmatch	" Show matching brackets.
-set ignorecase	" Do case insensitive matching
-set smartcase	" Do smart case matching
-set incsearch	" Incremental search
-set autowrite	" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
+:set showcmd		" Show (partial) command in status line.
+:set showmatch	" Show matching brackets.
+:set ignorecase	" Do case insensitive matching
+:set smartcase	" Do smart case matching
+:set incsearch	" Incremental search
+:set autowrite	" Automatically save before commands like :next and :make
+:set hidden		" Hide buffers when they are abandoned
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -161,8 +147,8 @@ endif
 :set number
 :set relativenumber
 :syntax enable
-:set tabstop=4
-:set shiftwidth=4
+:set tabstop=2
+:set shiftwidth=2
 :set expandtab
 :set smarttab
 :iabbrev </ </<C-X><C-O>
@@ -172,10 +158,7 @@ endif
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 :set cursorline
-:NoMatchParen
-
-" do end matching for ruby
-runtime macros/matchit.vim
+let loaded_matchparen = 1
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <c-c> <c-a>
