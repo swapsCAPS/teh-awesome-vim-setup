@@ -160,8 +160,6 @@ endif
 " My own stuff:
 :set number
 :set relativenumber
-set t_Co=256
-:colorscheme base16-default-dark
 :syntax enable
 :set tabstop=4
 :set shiftwidth=4
@@ -174,6 +172,7 @@ set t_Co=256
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 :set cursorline
+:NoMatchParen
 
 " do end matching for ruby
 runtime macros/matchit.vim
@@ -230,11 +229,18 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Airline stuff:
 set laststatus=2
+let g:airline_powerline_fonts = 1
 let g:airline_theme='base16'
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
+
+" Ignore certain things in ctrl-p
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 
 " JsBeautify stuff
 " Bind Ctrl-F to beautify whole file in any mode
