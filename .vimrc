@@ -64,13 +64,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Auto completer:
 " Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
 " install.py --tern-completer'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 
 " Improved javascript syntax highlighting and indentation
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plugin 'crusoexia/vim-javascript-lib'
 
 " Typescript Syntax for Vim
 Plugin 'leafgarland/typescript-vim'
@@ -92,6 +93,10 @@ Plugin 'ap/vim-css-color'
 
 " base 16 colorschemes : )
 Plugin 'chriskempson/base16-vim'
+" ALL THE COLORS
+Plugin 'flazz/vim-colorschemes'
+" Oh hai monokai
+Plugin 'crusoexia/vim-monokai'
 
 " Indentation based on what current file uses
 Plugin 'tpope/vim-sleuth'
@@ -111,16 +116,7 @@ Plugin 'vim-ruby/vim-ruby'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-if has("syntax")
-  syntax on
-endif
+syntax on
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -158,15 +154,16 @@ endif
 :set clipboard=unnamed
 :set timeoutlen=1000 ttimeoutlen=0
 :set cursorline
-let loaded_matchparen = 1
+:set t_Co=256
+let base16colorspace=256
+colorscheme monokai
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <c-c> <c-a>
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+  " source ~/.vimrc_background
+" endif
 
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
