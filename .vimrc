@@ -159,6 +159,11 @@ endif
 :set timeoutlen=1000 ttimeoutlen=0
 :set cursorline
 let loaded_matchparen = 1
+colorscheme base16-default-dark
+
+" Easy buffer switching
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <c-c> <c-a>
@@ -204,9 +209,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 1
 " let g:syntastic_debug = 3
 let g:syntastic_javascript_checkers = ['eslint']
 
