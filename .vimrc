@@ -64,7 +64,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Auto completer:
 " Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
 " install.py --tern-completer'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'ternjs/tern_for_vim'
 
 " Improved javascript syntax highlighting and indentation
@@ -155,6 +155,7 @@ endif
 :set timeoutlen=1000 ttimeoutlen=0
 :set cursorline
 :set t_Co=256
+let loaded_matchparen = 1
 let base16colorspace=256
 colorscheme monokai
 
