@@ -42,14 +42,19 @@ Plugin 'digitaltoad/vim-jade'
 " to fix whitespace errors call :FixWhiteSpace
 Plugin 'bronson/vim-trailing-whitespace'
 
-" Thanks Tim Pope
+" Awesome surroundness
 Plugin 'tpope/vim-surround'
+" Git wrapper for vim : )
+Plugin 'tpope/vim-fugitive'
+" Enable dot (.) for plugin shorthands
+Plugin 'tpope/vim-repeat'
+
 
 " Easy semicolon appending with '\ ;' whereever on a line
 Plugin 'lfilho/cosco.vim'
 
 " Auto close brackets, quotes, etc.
-Plugin 'Townk/vim-autoclose'
+" Plugin 'Townk/vim-autoclose' Abandonware?
 
 " Auto close html, xml, etc.
 " Plugin 'alvan/vim-closetag'
@@ -75,9 +80,6 @@ Plugin 'crusoexia/vim-javascript-lib'
 
 " Typescript Syntax for Vim
 Plugin 'leafgarland/typescript-vim'
-
-" Git wrapper for vim : )
-Plugin 'tpope/vim-fugitive'
 
 " Navigate vim & tmux panes with hjkl
 Plugin 'christoomey/vim-tmux-navigator'
@@ -110,6 +112,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 
 Plugin 'vim-ruby/vim-ruby'
+
+Plugin 'dkprice/vim-easygrep'
 
 
 " All of your Plugins must be added before the following line
