@@ -157,6 +157,7 @@ endif
 :set t_Co=256
 let loaded_matchparen = 1
 let base16colorspace=256
+let g:NERDTreeWinSize = 24
 colorscheme monokai
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
