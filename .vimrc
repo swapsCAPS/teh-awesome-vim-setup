@@ -49,7 +49,6 @@ Plugin 'tpope/vim-fugitive'
 " Enable dot (.) for plugin shorthands
 Plugin 'tpope/vim-repeat'
 
-
 " Easy semicolon appending with '\ ;' whereever on a line
 Plugin 'lfilho/cosco.vim'
 
@@ -162,7 +161,10 @@ endif
 :set timeoutlen=1000 ttimeoutlen=0
 :set cursorline
 :set t_Co=256
-let loaded_matchparen = 1
+set termguicolors
+:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+" let loaded_matchparen = 1 " TODO fix annoying matchparen cursor jump bug
 let base16colorspace=256
 let g:solarized_termcolors=256
 let g:NERDTreeWinSize = 24
@@ -188,8 +190,9 @@ map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR
 " Mouse fix for tmux and vim
 set mouse+=a
 if &term =~ '^screen'
-    " tmux knows the extended mouse mode
+  if !has('nvim')
     set ttymouse=xterm2
+  endif
 endif
 
 autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab

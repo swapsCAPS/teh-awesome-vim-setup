@@ -1,0 +1,1 @@
+/home/stofstik/teh-awesome-vim-setup/.vimrc
