@@ -55,6 +55,7 @@ Plugin 'lfilho/cosco.vim'
 
 " Auto close brackets, quotes, etc.
 " Plugin 'Townk/vim-autoclose' Abandonware?
+Plugin 'jiangmiao/auto-pairs'
 
 " Auto close html, xml, etc.
 " Plugin 'alvan/vim-closetag'
@@ -99,6 +100,8 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes'
 " Oh hai monokai
 Plugin 'crusoexia/vim-monokai'
+" So surprised solarized!
+Plugin 'altercation/vim-colors-solarized'
 
 " Indentation based on what current file uses
 Plugin 'tpope/vim-sleuth'
@@ -161,11 +164,15 @@ endif
 :set t_Co=256
 let loaded_matchparen = 1
 let base16colorspace=256
+let g:solarized_termcolors=256
 let g:NERDTreeWinSize = 24
 colorscheme monokai
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <c-c> <c-a>
+
+" Awesome esc remap!
+inoremap jk <Esc>
 
 " if filereadable(expand("~/.vimrc_background"))
   " source ~/.vimrc_background
