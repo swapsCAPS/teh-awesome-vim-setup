@@ -17,5 +17,6 @@
 - ```git clone https://github.com/VundleVim/Vundle.vim.git ~/teh-awesome-vim-setup/.vim/bundle/Vundle.vim```
 - ```pip2 install --upgrade neovim```
 - ```pip3 install --upgrade neovim```
+- ```gem install neovim```
 - ```nvim```
 - ```:CheckHealth```
