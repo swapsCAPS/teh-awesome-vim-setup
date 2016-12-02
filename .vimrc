@@ -125,8 +125,6 @@ Plugin 'dkprice/vim-easygrep'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-syntax on
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
@@ -135,13 +133,13 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-:set showcmd		" Show (partial) command in status line.
-:set showmatch	" Show matching brackets.
-:set ignorecase	" Do case insensitive matching
-:set smartcase	" Do smart case matching
-:set incsearch	" Incremental search
-:set autowrite	" Automatically save before commands like :next and :make
-:set hidden		" Hide buffers when they are abandoned
+set showcmd		" Show (partial) command in status line.
+set showmatch	" Show matching brackets.
+set ignorecase	" Do case insensitive matching
+set smartcase	" Do smart case matching
+set incsearch	" Incremental search
+set autowrite	" Automatically save before commands like :next and :make
+set hidden		" Hide buffers when they are abandoned
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -149,23 +147,24 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " My own stuff:
-:set number
-:set relativenumber
-:syntax enable
-:set tabstop=2
-:set shiftwidth=2
-:set expandtab
-:set smarttab
-:iabbrev </ </<C-X><C-O>
-:set omnifunc=syntaxcomplete#Complete
-:set colorcolumn=80
-:set pastetoggle=<F2>
-:set clipboard=unnamed
-:set timeoutlen=1000 ttimeoutlen=0
-:set cursorline
-:set t_Co=256
+set number
+set relativenumber
+syntax on
+syntax enable
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+iabbrev </ </<C-X><C-O>
+set omnifunc=syntaxcomplete#Complete
+set colorcolumn=80
+set pastetoggle=<F2>
+set clipboard=unnamed
+set timeoutlen=1000 ttimeoutlen=0
+set cursorline
+set t_Co=256
 set termguicolors
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " let loaded_matchparen = 1 " TODO fix annoying matchparen cursor jump bug
 let base16colorspace=256
