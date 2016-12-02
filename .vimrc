@@ -28,7 +28,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax checker
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'mtscout6/syntastic-local-eslint.vim'
+
+" Using neomake na0
+Plugin 'neomake/neomake'
+Plugin 'benjie/neomake-local-eslint.vim'
 
 " Emmet for vim
 Plugin 'mattn/emmet-vim'
@@ -53,7 +58,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'lfilho/cosco.vim'
 
 " Auto close brackets, quotes, etc.
-" Plugin 'Townk/vim-autoclose' Abandonware?
+Plugin 'jiangmiao/auto-pairs'
 
 " Auto close html, xml, etc.
 " Plugin 'alvan/vim-closetag'
@@ -74,7 +79,6 @@ Plugin 'ternjs/tern_for_vim'
 " Improved javascript syntax highlighting and indentation
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'crusoexia/vim-javascript-lib'
 
 " Typescript Syntax for Vim
@@ -205,17 +209,23 @@ inoremap <Down>	<Nop>
 inoremap <Left>	<Nop>
 inoremap <Right>    <Nop>
 
-" Syntastic stuff
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 1
-" let g:syntastic_debug = 3
-let g:syntastic_javascript_checkers = ['eslint']
+" " Syntastic stuff
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_enable_balloons = 1
+" " let g:syntastic_debug = 3
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" Neomake stuff
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_verbose = 3
+autocmd! BufWritePost * Neomake
 
 " Airline stuff:
 set laststatus=2
