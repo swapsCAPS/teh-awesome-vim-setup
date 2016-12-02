@@ -230,7 +230,7 @@ inoremap <Right>    <Nop>
 " Neomake stuff
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_verbose = 3
+let g:neomake_verbose = 0 " set to 3 to debug
 autocmd! BufWritePost * Neomake
 
 " Airline stuff:
