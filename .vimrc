@@ -28,7 +28,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax checker
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'mtscout6/syntastic-local-eslint.vim'
+
+" Using neomake na0
+Plugin 'neomake/neomake'
+Plugin 'benjie/neomake-local-eslint.vim'
 
 " Emmet for vim
 Plugin 'mattn/emmet-vim'
@@ -53,7 +58,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'lfilho/cosco.vim'
 
 " Auto close brackets, quotes, etc.
-" Plugin 'Townk/vim-autoclose' Abandonware?
 Plugin 'jiangmiao/auto-pairs'
 
 " Auto close html, xml, etc.
@@ -75,7 +79,6 @@ Plugin 'ternjs/tern_for_vim'
 " Improved javascript syntax highlighting and indentation
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'crusoexia/vim-javascript-lib'
 
 " Typescript Syntax for Vim
@@ -124,8 +127,6 @@ Plugin 'wakatime/vim-wakatime'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-syntax on
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
@@ -134,13 +135,13 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-:set showcmd		" Show (partial) command in status line.
-:set showmatch	" Show matching brackets.
-:set ignorecase	" Do case insensitive matching
-:set smartcase	" Do smart case matching
-:set incsearch	" Incremental search
-:set autowrite	" Automatically save before commands like :next and :make
-:set hidden		" Hide buffers when they are abandoned
+set showcmd		" Show (partial) command in status line.
+set showmatch	" Show matching brackets.
+set ignorecase	" Do case insensitive matching
+set smartcase	" Do smart case matching
+set incsearch	" Incremental search
+set autowrite	" Automatically save before commands like :next and :make
+set hidden		" Hide buffers when they are abandoned
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -148,23 +149,24 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " My own stuff:
-:set number
-:set relativenumber
-:syntax enable
-:set tabstop=2
-:set shiftwidth=2
-:set expandtab
-:set smarttab
-:iabbrev </ </<C-X><C-O>
-:set omnifunc=syntaxcomplete#Complete
-:set colorcolumn=80
-:set pastetoggle=<F2>
-:set clipboard=unnamed
-:set timeoutlen=1000 ttimeoutlen=0
-:set cursorline
-:set t_Co=256
+set number
+set relativenumber
+syntax on
+syntax enable
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+iabbrev </ </<C-X><C-O>
+set omnifunc=syntaxcomplete#Complete
+set colorcolumn=80
+set pastetoggle=<F2>
+set clipboard=unnamed
+set timeoutlen=1000 ttimeoutlen=0
+set cursorline
+set t_Co=256
 set termguicolors
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " let loaded_matchparen = 1 " TODO fix annoying matchparen cursor jump bug
 let base16colorspace=256
@@ -214,17 +216,23 @@ inoremap <Down>	<Nop>
 inoremap <Left>	<Nop>
 inoremap <Right>    <Nop>
 
-" Syntastic stuff
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_balloons = 1
-" let g:syntastic_debug = 3
-let g:syntastic_javascript_checkers = ['eslint']
+" " Syntastic stuff
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_enable_balloons = 1
+" " let g:syntastic_debug = 3
+" let g:syntastic_javascript_checkers = ['eslint']
+
+" Neomake stuff
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_verbose = 0 " set to 3 to debug
+autocmd! BufWritePost * Neomake
 
 " Airline stuff:
 set laststatus=2
