@@ -229,8 +229,9 @@ inoremap <Right>    <Nop>
 " let g:syntastic_javascript_checkers = ['eslint']
 
 " Neomake stuff
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['jshint', 'eslint']
+let g:neomake_javascript_enabled_makers = ['jshint', 'eslint']
+let g:neomake_json_enabled_makers = ['jsonlint']
 let g:neomake_verbose = 0 " set to 3 to debug
 autocmd! BufWritePost * Neomake
 
