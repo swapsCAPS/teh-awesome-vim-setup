@@ -27,6 +27,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" Git diff in line number column
+Plugin 'airblade/vim-gitgutter'
+
 " Syntax checker
 " Plugin 'scrooloose/syntastic'
 " Plugin 'mtscout6/syntastic-local-eslint.vim'
