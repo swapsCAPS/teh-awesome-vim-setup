@@ -46,6 +46,7 @@ Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify' " Used by vim-jsbeautify
 " Jade beautifier and 2 space indentation
 Plugin 'digitaltoad/vim-jade'
+Plugin 'joukevandermaas/vim-ember-hbs'
 
 " to fix whitespace errors call :FixWhiteSpace
 Plugin 'bronson/vim-trailing-whitespace'
@@ -107,6 +108,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'crusoexia/vim-monokai'
 " So surprised solarized!
 Plugin 'altercation/vim-colors-solarized'
+" Crosshairs w00t
+Plugin 'bronson/vim-crosshairs'
 
 " Indentation based on what current file uses
 Plugin 'tpope/vim-sleuth'
@@ -139,7 +142,7 @@ endif
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
 set showcmd		" Show (partial) command in status line.
-set showmatch	" Show matching brackets.
+" set showmatch	" Show matching brackets.
 set ignorecase	" Do case insensitive matching
 set smartcase	" Do smart case matching
 set incsearch	" Incremental search
@@ -166,12 +169,20 @@ set colorcolumn=80
 set pastetoggle=<F2>
 set clipboard=unnamed
 set timeoutlen=1000 ttimeoutlen=0
+" Enable cursor crosshair
 set cursorline
+set cursorcolumn
+let w:persistent_cursorline = 1
+
 set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-" let loaded_matchparen = 1 " TODO fix annoying matchparen cursor jump bug
+" NoMatchParen in normal mode
+NoMatchParen
+au! InsertEnter * DoMatchParen
+au! InsertLeave * NoMatchParen 
+
 let base16colorspace=256
 let g:solarized_termcolors=256
 let g:NERDTreeWinSize = 24
@@ -232,8 +243,8 @@ inoremap <Right>    <Nop>
 " let g:syntastic_javascript_checkers = ['eslint']
 
 " Neomake stuff
-let g:neomake_jsx_enabled_makers = ['jshint', 'eslint']
-let g:neomake_javascript_enabled_makers = ['jshint', 'eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_json_enabled_makers = ['jsonlint']
 let g:neomake_verbose = 0 " set to 3 to debug
 autocmd! BufWritePost * Neomake
