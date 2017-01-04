@@ -179,7 +179,6 @@ set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " NoMatchParen in normal mode
-NoMatchParen
 au! InsertEnter * DoMatchParen
 au! InsertLeave * NoMatchParen 
 
