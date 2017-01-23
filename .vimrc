@@ -41,6 +41,8 @@ Plugin 'benjie/neomake-local-eslint.vim'
 " Emmet for vim
 Plugin 'mattn/emmet-vim'
 
+Plugin 'editorconfig/editorconfig-vim'
+
 " Beautify js, json, html, css, etc
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify' " Used by vim-jsbeautify
@@ -74,6 +76,9 @@ Plugin 'vim-airline/vim-airline-themes'
 " Fuzzy finder (quick file finder) press 'ctrl-p'! :)
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Markdown preview
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
 " Auto completer:
 " Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
 " install.py --tern-completer'
@@ -84,6 +89,9 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'crusoexia/vim-javascript-lib'
+
+" Coffee script support
+Plugin 'kchmck/vim-coffee-script'
 
 " Typescript Syntax for Vim
 Plugin 'leafgarland/typescript-vim'
@@ -162,7 +170,6 @@ syntax enable
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set smarttab
 iabbrev </ </<C-X><C-O>
 set omnifunc=syntaxcomplete#Complete
 set colorcolumn=80
@@ -245,7 +252,6 @@ inoremap <Right>    <Nop>
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_json_enabled_makers = ['jsonlint']
-let g:neomake_verbose = 0 " set to 3 to debug
 autocmd! BufWritePost * Neomake
 
 " Airline stuff:
@@ -262,6 +268,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
+
+" Fix editorconfig + fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " JsBeautify stuff
 " Bind Ctrl-F to beautify whole file in any mode
@@ -291,6 +300,11 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 " vim-javascript stuff
 let g:javascript_enable_domhtmlcss = 1
 " set foldmethod=syntax " Please note this can have a dramatic effect on performance and because it is a global vim option, we do not set it ourselves.
+
+" We already use ctrl-p
+let vim_markdown_preview_hotkey='<C-m>'
+" Use github markdown
+let vim_markdown_preview_github=1
 
 " Mappings to toggle folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
