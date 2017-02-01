@@ -198,7 +198,8 @@ colorscheme monokai
 nnoremap <c-c> <c-a>
 
 " Awesome esc remap!
-inoremap jk <Esc>
+inoremap jj <Esc>
+inoremap kk <Esc>
 
 " if filereadable(expand("~/.vimrc_background"))
   " source ~/.vimrc_background
