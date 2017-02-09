@@ -187,7 +187,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " NoMatchParen in normal mode
 au! InsertEnter * DoMatchParen
-au! InsertLeave * NoMatchParen 
+au! InsertLeave * NoMatchParen
 
 let base16colorspace=256
 let g:solarized_termcolors=256
@@ -253,6 +253,7 @@ inoremap <Right>    <Nop>
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_json_enabled_makers = ['jsonlint']
+let g:neomake_coffee_enabled_makers = ['coffeelint']
 autocmd! BufWritePost * Neomake
 
 " Airline stuff:
@@ -266,7 +267,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Ignore certain things in ctrl-p
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$',
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$|build$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
