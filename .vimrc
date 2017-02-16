@@ -72,6 +72,8 @@ Plugin 'jiangmiao/auto-pairs'
 " Info line at the bottom of the screen
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" tmux statusline integration
+Plugin 'edkolev/tmuxline.vim'
 
 " Fuzzy finder (quick file finder) press 'ctrl-p'! :)
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -261,6 +263,9 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_preset = 'crosshair'
+let g:tmuxline_theme = 'zenburn'
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims = 1
