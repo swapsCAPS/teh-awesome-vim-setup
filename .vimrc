@@ -259,17 +259,21 @@ autocmd! BufWritePost * Neomake
 " Airline stuff:
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
+let g:airline_theme='molokai'
+let g:airline#extensions#tabline#enabled = 1
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 
-" Ignore certain things in ctrl-p
+" Ctrl-p
+" Ignore certain stuff
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$|build$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
+" Use most recent files first
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Fix editorconfig + fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
