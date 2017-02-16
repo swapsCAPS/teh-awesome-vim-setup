@@ -182,6 +182,12 @@ set timeoutlen=1000 ttimeoutlen=0
 set cursorline
 set cursorcolumn
 let w:persistent_cursorline = 1
+" Easily switch buffers
+nnoremap <c-b> :bprevious <Enter>
+nnoremap <c-n> :bnext <Enter>
+nnoremap <F10> :bd <Enter>
+" Easily save
+nnoremap <F5> :w <Enter>
 
 set t_Co=256
 set termguicolors
