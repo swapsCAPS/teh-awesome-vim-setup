@@ -171,7 +171,7 @@ syntax on
 syntax enable
 set tabstop=2
 set shiftwidth=2
-set expandtab
+set noexpandtab
 iabbrev </ </<C-X><C-O>
 set omnifunc=syntaxcomplete#Complete
 set colorcolumn=80
@@ -261,6 +261,7 @@ inoremap <Right>    <Nop>
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_json_enabled_makers = ['jsonlint']
+let g:neomake_json5_enabled_makers = ['jsonlint']
 let g:neomake_coffee_enabled_makers = ['coffeelint']
 autocmd! BufWritePost * Neomake
 
