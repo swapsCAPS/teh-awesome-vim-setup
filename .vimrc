@@ -189,6 +189,8 @@ nnoremap <F10> :bd <Enter>
 " Easily save
 nnoremap <F5> :w <Enter>
 
+nnoremap <F4>  :NERDTreeToggle <Enter>
+
 set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
