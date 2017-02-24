@@ -195,10 +195,6 @@ set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-" NoMatchParen in normal mode
-au! InsertEnter * DoMatchParen
-au! InsertLeave * NoMatchParen
-
 let base16colorspace=256
 let g:solarized_termcolors=256
 let g:NERDTreeWinSize = 24
