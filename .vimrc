@@ -138,6 +138,7 @@ Plugin 'dkprice/vim-easygrep'
 
 Plugin 'wakatime/vim-wakatime'
 
+Plugin 'aharris88/consolation-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -190,6 +191,7 @@ nnoremap <F10> :bd <Enter>
 nnoremap <F5> :w <Enter>
 
 nnoremap <F4>  :NERDTreeToggle <Enter>
+nnoremap <leader>c :Consolate<cr>
 
 set t_Co=256
 set termguicolors
