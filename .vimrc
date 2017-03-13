@@ -179,6 +179,7 @@ set colorcolumn=80
 set pastetoggle=<F2>
 set clipboard=unnamed
 set timeoutlen=1000 ttimeoutlen=0
+set nowrap
 " Enable cursor crosshair
 set cursorline
 set cursorcolumn
