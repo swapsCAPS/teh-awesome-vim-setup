@@ -194,6 +194,12 @@ nnoremap <F5> :w <Enter>
 nnoremap <F4>  :NERDTreeToggle <Enter>
 nnoremap <leader>c :Consolate<cr>
 
+nnoremap <F3> :CoffeeCompile <Enter>
+vnoremap <F3> :CoffeeCompile <Enter>
+
+" Beautify JSON... BJ, hehehehe
+command! BJ execute "%!python -m json.tool"
+
 set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
