@@ -205,8 +205,6 @@ set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-let base16colorspace=256
-let g:solarized_termcolors=256
 let g:NERDTreeWinSize = 24
 colorscheme monokai
 
@@ -217,9 +215,10 @@ nnoremap <c-c> <c-a>
 inoremap jj <Esc>
 inoremap kk <Esc>
 
-" if filereadable(expand("~/.vimrc_background"))
-  " source ~/.vimrc_background
-" endif
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -276,7 +275,7 @@ autocmd! BufWritePost * Neomake
 " Airline stuff:
 set laststatus=2
 let g:airline_powerline_fonts = 1
-let g:airline_theme='molokai'
+let g:airline_theme='base16_shell'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_preset = 'crosshair'
