@@ -122,7 +122,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bronson/vim-crosshairs'
 
 " Indentation based on what current file uses
-Plugin 'tpope/vim-sleuth'
+" Plugin 'tpope/vim-sleuth'
 
 " CSS syntax support
 Plugin 'hail2u/vim-css3-syntax.git'
@@ -188,19 +188,17 @@ let w:persistent_cursorline = 1
 " Easily switch buffers
 nnoremap <c-b> :bprevious <Enter>
 nnoremap <c-n> :bnext <Enter>
-nnoremap <F10> :bd <Enter>
-" Easily save
-nnoremap <F5> :w <Enter>
-
-nnoremap <F4>  :NERDTreeToggle <Enter>
 nnoremap <leader>c :Consolate<cr>
-
 nnoremap <F3> :CoffeeCompile <Enter>
 vnoremap <F3> :CoffeeCompile <Enter>
+nnoremap <F4>  :NERDTreeToggle <Enter>
+nnoremap <F5> :w <Enter>
+nnoremap <F10> :bd <Enter>
+
+inoremap <leader>l console.log<Space>
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
-
 set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -251,6 +249,9 @@ inoremap <Up>	<Nop>
 inoremap <Down>	<Nop>
 inoremap <Left>	<Nop>
 inoremap <Right>    <Nop>
+
+" cson is coffeescript
+au BufRead,BufNewFile *.cson set ft=coffee
 
 " " Syntastic stuff
 " set statusline+=%#warningmsg#
