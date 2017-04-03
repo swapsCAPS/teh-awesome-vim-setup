@@ -194,12 +194,14 @@ vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F4>  :NERDTreeToggle <Enter>
 nnoremap <F5> :w <Enter>
 nnoremap <F10> :bd <Enter>
-
+" ctrl+c to toggle highlight.
+let hlstate=0
+nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 inoremap <leader>l console.log<Space>
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
-set t_Co=256
+" set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -213,10 +215,10 @@ nnoremap <c-c> <c-a>
 inoremap jj <Esc>
 inoremap kk <Esc>
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+  " let base16colorspace=256
+  " source ~/.vimrc_background
+" endif
 
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
