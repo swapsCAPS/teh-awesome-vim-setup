@@ -177,7 +177,6 @@ set noexpandtab
 iabbrev </ </<C-X><C-O>
 set omnifunc=syntaxcomplete#Complete
 set colorcolumn=80
-set pastetoggle=<F2>
 set clipboard=unnamed
 set timeoutlen=1000 ttimeoutlen=0
 set nowrap
@@ -189,6 +188,7 @@ let w:persistent_cursorline = 1
 nnoremap <c-b> :bprevious <Enter>
 nnoremap <c-n> :bnext <Enter>
 nnoremap <leader>c :Consolate<cr>
+set pastetoggle=<F2>
 nnoremap <F3> :CoffeeCompile <Enter>
 vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F4>  :NERDTreeToggle <Enter>
@@ -294,8 +294,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$|build$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
-" Use most recent files first
-let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Fix editorconfig + fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
