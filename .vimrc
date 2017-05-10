@@ -134,12 +134,6 @@ Plugin 'garbas/vim-snipmate'
 
 Plugin 'vim-ruby/vim-ruby'
 
-Plugin 'dkprice/vim-easygrep'
-
-Plugin 'wakatime/vim-wakatime'
-
-Plugin 'aharris88/consolation-vim'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -187,7 +181,6 @@ let w:persistent_cursorline = 1
 " Easily switch buffers
 nnoremap <c-b> :bprevious <Enter>
 nnoremap <c-n> :bnext <Enter>
-nnoremap <leader>c :Consolate<cr>
 set pastetoggle=<F2>
 nnoremap <F3> :CoffeeCompile <Enter>
 vnoremap <F3> :CoffeeCompile <Enter>
@@ -197,7 +190,10 @@ nnoremap <F10> :bd <Enter>
 " ctrl+c to toggle highlight.
 let hlstate=0
 nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
-inoremap <leader>l console.log<Space>
+
+" Macros yay!
+nnoremap <F7> oconsole.log "pa", p
+vnoremap <F7> yoconsole.log "pa", p
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
