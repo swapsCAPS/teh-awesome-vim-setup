@@ -194,8 +194,8 @@ nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endi
 " Macros yay!
 autocmd FileType coffee nnoremap <F7> oconsole.log "pa", p
 autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
-autocmd FileType javascript nnoremap <F7> oconsole.log("pa", pi)
-autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", p)
+autocmd FileType javascript nnoremap <F7> oconsole.log("pa", pa)
+autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
