@@ -192,8 +192,10 @@ let hlstate=0
 nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 
 " Macros yay!
-nnoremap <F7> oconsole.log "pa", p
-vnoremap <F7> yoconsole.log "pa", p
+autocmd FileType coffee nnoremap <F7> oconsole.log "pa", p
+autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
+autocmd FileType javascript nnoremap <F7> oconsole.log("pa", pi)
+autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", p)
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
@@ -209,7 +211,6 @@ nnoremap <c-c> <c-a>
 
 " Awesome esc remap!
 inoremap jj <Esc>
-inoremap kk <Esc>
 
 " if filereadable(expand("~/.vimrc_background"))
   " let base16colorspace=256
@@ -230,8 +231,6 @@ if &term =~ '^screen'
     set ttymouse=xterm2
   endif
 endif
-
-autocmd FileType jade setlocal tabstop=2 shiftwidth=2 expandtab smarttab
 
 " Use leader ; to place a semicolon at the end of the line
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
