@@ -94,6 +94,7 @@ Plugin 'crusoexia/vim-javascript-lib'
 
 " Coffee script support
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mtscout6/vim-cjsx'
 
 " Typescript Syntax for Vim
 Plugin 'leafgarland/typescript-vim'
