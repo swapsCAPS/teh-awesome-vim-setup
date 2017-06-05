@@ -145,8 +145,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
 set showcmd		" Show (partial) command in status line.
 " set showmatch	" Show matching brackets.
 set noignorecase	" Do case sensitive matching
@@ -154,11 +152,6 @@ set smartcase	" Do smart case matching
 set incsearch	" Incremental search
 set autowrite	" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
 
 " My own stuff:
 set number
@@ -200,23 +193,24 @@ autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
+"
+" Color stuff
+" if filereadable(expand("~/.vimrc_background"))
+  " let base16colorspace=256
+  " source ~/.vimrc_background
+" endif
 " set t_Co=256
 set termguicolors
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+colorscheme monokai
 
 let g:NERDTreeWinSize = 24
-colorscheme monokai
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <c-c> <c-a>
 
 " Awesome esc remap!
 inoremap jj <Esc>
-
-" if filereadable(expand("~/.vimrc_background"))
-  " let base16colorspace=256
-  " source ~/.vimrc_background
-" endif
 
 " Save all temp madness to one dir
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
