@@ -139,8 +139,7 @@ Plugin 'vim-ruby/vim-ruby'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
+" Jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -181,7 +180,6 @@ vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F4>  :NERDTreeToggle <Enter>
 nnoremap <F5> :w <Enter>
 nnoremap <F10> :bd <Enter>
-" ctrl+c to toggle highlight.
 let hlstate=0
 nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 
@@ -232,17 +230,6 @@ endif
 autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
-" Disable arrow keys in normal mode
-nnoremap <Up>	<Nop>
-nnoremap <Down>	<Nop>
-nnoremap <Left>	<Nop>
-nnoremap <Right>	<Nop>
-" Disable arrow keys in insert mode
-inoremap <Up>	<Nop>
-inoremap <Down>	<Nop>
-inoremap <Left>	<Nop>
-inoremap <Right>    <Nop>
-
 " cson is coffeescript
 au BufRead,BufNewFile *.cson set ft=coffee
 
@@ -259,24 +246,24 @@ au BufRead,BufNewFile *.cson set ft=coffee
 " let g:syntastic_javascript_checkers = ['eslint']
 
 " Neomake stuff
-let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers        = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_json_enabled_makers = ['jsonlint']
-let g:neomake_json5_enabled_makers = ['jsonlint']
-let g:neomake_coffee_enabled_makers = ['coffeelint']
+let g:neomake_json_enabled_makers       = ['jsonlint']
+let g:neomake_json5_enabled_makers      = ['jsonlint']
+let g:neomake_coffee_enabled_makers     = ['coffeelint']
 autocmd! BufWritePost * Neomake
 
 " Airline stuff:
 set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_theme='bubblegum'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts             = 1
+let g:airline_theme                       = 'bubblegum'
+let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_preset = 'crosshair'
-let g:tmuxline_theme = 'zenburn'
+let g:tmuxline_preset                     = 'crosshair'
+let g:tmuxline_theme                      = 'zenburn'
 
 " Nerd commenter stuff
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims            = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 " Ctrl-p
@@ -294,16 +281,16 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType typescript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+autocmd FileType jsx  noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType css  noremap <buffer> <c-f> :call CSSBeautify()<cr>
 " Bind Ctrl-F to beautify selection in visual mode
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType typescript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType jsx  vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+autocmd FileType css  vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Use jsx in js files as well
 let g:jsx_ext_required = 0
@@ -326,4 +313,3 @@ let vim_markdown_preview_github=1
 " Mappings to toggle folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
-
