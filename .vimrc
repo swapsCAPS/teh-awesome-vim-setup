@@ -201,7 +201,7 @@ endif
 if has('nvim')
   set termguicolors
 endif
-" colorscheme monokai
+colorscheme monokai
 
 let g:NERDTreeWinSize = 24
 
