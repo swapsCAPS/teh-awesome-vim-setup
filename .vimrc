@@ -233,6 +233,8 @@ autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#com
 " cson is coffeescript
 au BufRead,BufNewFile *.cson set ft=coffee
 
+au BufRead,BufNewFile *.json5 set ft=javascript
+
 " " Syntastic stuff
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
