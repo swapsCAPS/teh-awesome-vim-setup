@@ -11,3 +11,4 @@
 - ```git clone https://github.com/VundleVim/Vundle.vim.git ~/teh-awesome-vim-setup/.vim/bundle/Vundle.vim```
 - ```vim```
 - ```:PluginInstall```
+- ```:so ~/.vimrc```
