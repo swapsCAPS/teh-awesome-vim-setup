@@ -1,4 +1,6 @@
-# teh-awesome-vim-setup
+# teh-awesome-lite-setup
+
+### Lite setup without auto completion engine etc.
 
 ### Install lite:
 - ```git clone https://github.com/stofstik/teh-awesome-vim-setup.git ~/``` 
@@ -7,3 +9,5 @@
 - ```ln -s ~/teh-awesome-vim-setup/.vim ~/.vim```
 - ```ln -s ~/teh-awesome-vim-setup/.vimrc ~/.vimrc```
 - ```git clone https://github.com/VundleVim/Vundle.vim.git ~/teh-awesome-vim-setup/.vim/bundle/Vundle.vim```
+- ```vim```
+- ```:PluginInstall```
