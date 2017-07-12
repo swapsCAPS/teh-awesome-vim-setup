@@ -115,10 +115,13 @@ Plugin 'ap/vim-css-color'
 Plugin 'chriskempson/base16-vim'
 " ALL THE COLORS
 Plugin 'flazz/vim-colorschemes'
+" Gruvbox
+Plugin 'morhetz/gruvbox'
 " Oh hai monokai
 Plugin 'crusoexia/vim-monokai'
 " So surprised solarized!
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 " Crosshairs w00t
 Plugin 'bronson/vim-crosshairs'
 
@@ -171,6 +174,7 @@ set nowrap
 set cursorline
 set cursorcolumn
 let w:persistent_cursorline = 1
+let g:solarized_termcolors=256
 " Easily switch buffers
 nnoremap <c-b> :bprevious <Enter>
 nnoremap <c-n> :bnext <Enter>
