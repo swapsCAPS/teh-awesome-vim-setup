@@ -181,7 +181,7 @@ nnoremap <c-n> :bnext <Enter>
 set pastetoggle=<F2>
 nnoremap <F3> :CoffeeCompile <Enter>
 vnoremap <F3> :CoffeeCompile <Enter>
-nnoremap <F4>  :NERDTreeToggle <Enter>
+nnoremap <F4> :NERDTreeToggle <Enter>
 nnoremap <F5> :w <Enter>
 nnoremap <F10> :bd <Enter>
 let hlstate=0
@@ -205,7 +205,7 @@ endif
 if has('nvim')
   set termguicolors
 endif
-colorscheme monokai
+colorscheme solarized8_light_flat
 
 let g:NERDTreeWinSize = 24
 
@@ -219,8 +219,8 @@ inoremap jj <Esc>
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" Easily toggle background color
-map <Leader>bg :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+command! L :colorscheme solarized8_light_flat <bar> :AirlineTheme solarized <bar> :Tmuxline
+command! D :colorscheme monokai <bar> :AirlineTheme bubblegum <bar> :Tmuxline
 
 " Mouse fix for tmux and vim
 set mouse+=a
@@ -262,11 +262,12 @@ autocmd! BufWritePost * Neomake
 " Airline stuff:
 set laststatus=2
 let g:airline_powerline_fonts             = 1
-let g:airline_theme                       = 'bubblegum'
+" let g:airline_theme                       = 'bubblegum'
+let g:airline_theme                       = 'solarized'
 let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_preset                     = 'crosshair'
-let g:tmuxline_theme                      = 'zenburn'
+let g:tmuxline_theme                      = 'airline'
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims            = 1
