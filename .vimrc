@@ -197,15 +197,15 @@ autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
 command! BJ execute "%!python -m json.tool"
 "
 " Color stuff
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+" if filereadable(expand("~/.vimrc_background"))
+  " let base16colorspace=256
+  " source ~/.vimrc_background
+" endif
 " set t_Co=256
 if has('nvim')
   set termguicolors
 endif
-colorscheme solarized8_light_flat
+colorscheme monokai
 
 let g:NERDTreeWinSize = 24
 
@@ -262,8 +262,8 @@ autocmd! BufWritePost * Neomake
 " Airline stuff:
 set laststatus=2
 let g:airline_powerline_fonts             = 1
-" let g:airline_theme                       = 'bubblegum'
-let g:airline_theme                       = 'solarized'
+let g:airline_theme                       = 'bubblegum'
+" let g:airline_theme                       = 'solarized'
 let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:tmuxline_preset                     = 'crosshair'
