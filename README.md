@@ -1,9 +1,9 @@
 # teh-awesome-vim-setup
 
-<img src="https://github.com/stofstik/teh-awesome-vim-setup/blob/master/screenshot.png" width="600" />
+<img src="https://github.com/swapsCAPS/teh-awesome-vim-setup/blob/master/screenshot.png" width="600" />
 
 ### Install for Neovim
-- ```git clone https://github.com/stofstik/teh-awesome-vim-setup.git ~/src/teh-awesome-vim-setup```  
+- ```git clone https://github.com/swapsCAPS/teh-awesome-vim-setup.git ~/src/teh-awesome-vim-setup```  
 - ```mkdir ~/.config```
 - ```ln -s ~/src/teh-awesome-vim-setup/.vim ~/.vim```
 - ```ln -s ~/src/teh-awesome-vim-setup/.vimrc ~/.vimrc```
