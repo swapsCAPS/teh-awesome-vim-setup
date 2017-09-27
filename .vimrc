@@ -124,7 +124,6 @@ nnoremap <c-b> :bprevious <Enter>
 nnoremap <c-n> :bnext <Enter>
 set pastetoggle=<F2>
 nnoremap <F3> :CoffeeCompile <Enter>
-vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F4> :NERDTreeToggle <Enter>
 nnoremap <F5> :w <Enter>
 nnoremap <F10> :bd <Enter>
@@ -164,7 +163,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 command! L :colorscheme solarized8_light_flat <bar> :AirlineTheme solarized <bar> :Tmuxline zenburn
-command! D :colorscheme monokai <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
+command! D :colorscheme monokai               <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
 
 " Mouse fix for tmux and vim
 set mouse+=a
@@ -174,26 +173,8 @@ if &term =~ '^screen'
   endif
 endif
 
-" Use leader ; to place a semicolon at the end of the line
-autocmd FileType javascript,css nnoremap <silent> <leader>; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css inoremap <silent> <leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
-
 " cson is coffeescript
-au BufRead,BufNewFile *.cson set ft=coffee
-
-au BufRead,BufNewFile *.json5 set ft=javascript
-
-" " Syntastic stuff
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 2
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_balloons = 1
-" " let g:syntastic_debug = 3
-" let g:syntastic_javascript_checkers = ['eslint']
+au BufRead,BufNewFile *.cson  set ft=coffee
 
 " Neomake stuff
 let g:neomake_jsx_enabled_makers        = ['eslint']
@@ -227,22 +208,6 @@ let g:ctrlp_custom_ignore = {
 " Fix editorconfig + fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" JsBeautify stuff
-" Bind Ctrl-F to beautify whole file in any mode
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType typescript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-autocmd FileType jsx  noremap <buffer> <c-f> :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css  noremap <buffer> <c-f> :call CSSBeautify()<cr>
-" Bind Ctrl-F to beautify selection in visual mode
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType typescript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx  vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css  vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
-
 " Use jsx in js files as well
 let g:jsx_ext_required = 0
 
@@ -254,7 +219,6 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 " vim-javascript stuff
 let g:javascript_enable_domhtmlcss = 1
-" set foldmethod=syntax " Please note this can have a dramatic effect on performance and because it is a global vim option, we do not set it ourselves.
 
 " We already use ctrl-p
 let vim_markdown_preview_hotkey='<C-m>'
