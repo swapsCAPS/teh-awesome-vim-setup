@@ -11,7 +11,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Git diff in line number column
 Plug 'airblade/vim-gitgutter'
 
-" Using neomake na0
+" Using neomake
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 
@@ -20,17 +20,11 @@ Plug 'mattn/emmet-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
-" Beautify js, json, html, css, etc
-Plug 'maksimr/vim-jsbeautify'
-Plug 'einars/js-beautify' " Used by vim-jsbeautify
 " Jade beautifier and 2 space indentation
 Plug 'digitaltoad/vim-jade'
-Plug 'joukevandermaas/vim-ember-hbs'
 
 " Awesome surroundness
 Plug 'tpope/vim-surround'
-" Git wrapper for vim : )
-Plug 'tpope/vim-fugitive'
 " Enable dot (.) for plugin shorthands
 Plug 'tpope/vim-repeat'
 
@@ -43,15 +37,13 @@ Plug 'vim-airline/vim-airline-themes'
 " tmux statusline integration
 Plug 'edkolev/tmuxline.vim'
 
-" Fuzzy finder (quick file finder) press 'ctrl-p'! :)
+" Fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Markdown preview
 Plug 'JamshedVesuna/vim-markdown-preview'
 
-" Auto completer:
-" Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
-" install.py --tern-completer'
+" Auto completer
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim'
 
@@ -88,21 +80,9 @@ Plug 'morhetz/gruvbox'
 " Oh hai monokai
 Plug 'crusoexia/vim-monokai'
 " So surprised solarized!
-Plug 'altercation/vim-colors-solarized'
 Plug 'lifepillar/vim-solarized8'
 " Crosshairs w00t
 Plug 'bronson/vim-crosshairs'
-
-" Indentation based on what current file uses
-" Plug 'tpope/vim-sleuth'
-
-" CSS syntax support
-Plug 'hail2u/vim-css3-syntax.git'
-
-" All teh snippets!
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 
 Plug 'vim-ruby/vim-ruby'
 call plug#end()
