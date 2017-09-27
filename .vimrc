@@ -41,11 +41,11 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Markdown preview
-Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'JamshedVesuna/vim-markdown-preview', { 'do': 'pip install --user --upgrade grip' }
 
 " Auto completer
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
-Plug 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " Improved javascript syntax highlighting and indentation
 Plug 'pangloss/vim-javascript'
@@ -156,7 +156,7 @@ let g:NERDTreeWinSize = 24
 nnoremap <C-up>   <c-a>
 nnoremap <C-down> <c-x>
 
-" Awesome esc remap!
+" Esc remap
 inoremap jj <Esc>
 
 " Save all temp madness to one dir

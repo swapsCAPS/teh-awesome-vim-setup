@@ -9,8 +9,9 @@
 - ```ln -s ~/src/teh-awesome-vim-setup/.vimrc ~/.vimrc```
 - ```ln -s ~/src/teh-awesome-vim-setup/.vimrc ~/.config/nvim/init.vim```
 - ```curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim ```
-- ```pip2 install --upgrade neovim```
-- ```pip3 install --upgrade neovim```
+- ```pip  install --user --upgrade grip```
+- ```pip2 install --user --upgrade neovim```
+- ```pip3 install --user --upgrade neovim```
 - ```gem install neovim```
 - ```nvim```
 - ```:CheckHealth```
