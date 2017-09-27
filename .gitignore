@@ -1,5 +1,0 @@
-*.swp
-*.swo
-.netrwhist
-bundle/
-init.vim

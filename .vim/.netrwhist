@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/stofstik/teh-awesome-vim-setup/.vim'
-let g:netrw_dirhist_2='/mnt/ECB83D79B83D42FE/Dropbox/web-development/mongo-getting-started'
-let g:netrw_dirhist_3='/home/pi/www/dagstaatje-database-server'
-let g:netrw_dirhist_4='/home/pi/www'
-let g:netrw_dirhist_5='/home/pi/www/lets-meet-server'
-let g:netrw_dirhist_6='/home/pi/www/dagstaatje-database-server'
