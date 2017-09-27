@@ -1,146 +1,111 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
-" the call to :runtime you can find below.  If you wish to change any of those
-" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
-" will be overwritten everytime an upgrade of the vim packages is performed.
-" It is recommended to make changes after sourcing debian.vim since it alters
-" the value of the 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
+set nocompatible
+filetype off
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin()
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Place plugins here:
-
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Git diff in line number column
-Plugin 'airblade/vim-gitgutter'
-
-" Syntax checker
-" Plugin 'scrooloose/syntastic'
-" Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plug 'airblade/vim-gitgutter'
 
 " Using neomake na0
-Plugin 'neomake/neomake'
-Plugin 'benjie/neomake-local-eslint.vim'
+Plug 'neomake/neomake'
+Plug 'benjie/neomake-local-eslint.vim'
 
 " Emmet for vim
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 
 " Beautify js, json, html, css, etc
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify' " Used by vim-jsbeautify
+Plug 'maksimr/vim-jsbeautify'
+Plug 'einars/js-beautify' " Used by vim-jsbeautify
 " Jade beautifier and 2 space indentation
-Plugin 'digitaltoad/vim-jade'
-Plugin 'joukevandermaas/vim-ember-hbs'
-
-" to fix whitespace errors call :FixWhiteSpace
-Plugin 'bronson/vim-trailing-whitespace'
+Plug 'digitaltoad/vim-jade'
+Plug 'joukevandermaas/vim-ember-hbs'
 
 " Awesome surroundness
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " Git wrapper for vim : )
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Enable dot (.) for plugin shorthands
-Plugin 'tpope/vim-repeat'
-
-" Easy semicolon appending with '\ ;' whereever on a line
-Plugin 'lfilho/cosco.vim'
+Plug 'tpope/vim-repeat'
 
 " Auto close brackets, quotes, etc.
-Plugin 'jiangmiao/auto-pairs'
-
-" Auto close html, xml, etc.
-" Plugin 'alvan/vim-closetag'
+Plug 'jiangmiao/auto-pairs'
 
 " Info line at the bottom of the screen
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " tmux statusline integration
-Plugin 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 
 " Fuzzy finder (quick file finder) press 'ctrl-p'! :)
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " Markdown preview
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " Auto completer:
 " Dont forget to compile using 'cd ~/teh-awesome-vim-setup/YouCompleteMe/ &&
 " install.py --tern-completer'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ternjs/tern_for_vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+Plug 'ternjs/tern_for_vim'
 
 " Improved javascript syntax highlighting and indentation
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'crusoexia/vim-javascript-lib'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'crusoexia/vim-javascript-lib'
 
 " Coffee script support
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mtscout6/vim-cjsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mtscout6/vim-cjsx'
 
 " Typescript Syntax for Vim
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " Navigate vim & tmux panes with hjkl
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Sublime style minimap
-Plugin 'severin-lemaignan/vim-minimap'
+Plug 'severin-lemaignan/vim-minimap'
 
 " HARD MODE
-Plugin 'wikitopian/hardmode'
+Plug 'wikitopian/hardmode'
 
 " Highlight color codes
-Plugin 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " base 16 colorschemes : )
-Plugin 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 " ALL THE COLORS
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 " Gruvbox
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 " Oh hai monokai
-Plugin 'crusoexia/vim-monokai'
+Plug 'crusoexia/vim-monokai'
 " So surprised solarized!
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'lifepillar/vim-solarized8'
+Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 " Crosshairs w00t
-Plugin 'bronson/vim-crosshairs'
+Plug 'bronson/vim-crosshairs'
 
 " Indentation based on what current file uses
-" Plugin 'tpope/vim-sleuth'
+" Plug 'tpope/vim-sleuth'
 
 " CSS syntax support
-Plugin 'hail2u/vim-css3-syntax.git'
+Plug 'hail2u/vim-css3-syntax.git'
 
 " All teh snippets!
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
-Plugin 'vim-ruby/vim-ruby'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plug 'vim-ruby/vim-ruby'
+call plug#end()
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -148,7 +113,6 @@ if has("autocmd")
 endif
 
 set showcmd		" Show (partial) command in status line.
-" set showmatch	" Show matching brackets.
 set noignorecase	" Do case sensitive matching
 set smartcase	" Do smart case matching
 set incsearch	" Incremental search
