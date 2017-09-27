@@ -1,6 +1,6 @@
 # teh-awesome-vim-setup
 
-<img src="https://github.com/swapsCAPS/teh-awesome-vim-setup/blob/master/screenshot.png" width="600" />
+<img src="https://github.com/swapsCAPS/teh-awesome-vim-setup/blob/master/screenshot.png" width="800" />
 
 ### Install for Neovim
 - ```mkdir ~/src```
