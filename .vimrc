@@ -153,7 +153,8 @@ colorscheme monokai
 let g:NERDTreeWinSize = 24
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
-nnoremap <c-c> <c-a>
+nnoremap <C-up>   <c-a>
+nnoremap <C-down> <c-x>
 
 " Awesome esc remap!
 inoremap jj <Esc>
