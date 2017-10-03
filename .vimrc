@@ -2,7 +2,7 @@ runtime! debian.vim
 set nocompatible
 filetype off
 
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
