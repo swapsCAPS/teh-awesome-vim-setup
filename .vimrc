@@ -71,6 +71,9 @@ Plug 'wikitopian/hardmode'
 " Highlight color codes
 Plug 'ap/vim-css-color'
 
+" Easy align
+Plug 'junegunn/vim-easy-align'
+
 " base 16 colorschemes : )
 Plug 'chriskempson/base16-vim'
 " ALL THE COLORS
@@ -92,18 +95,18 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+set clipboard+=unnamedplus
 set showcmd		" Show (partial) command in status line.
 set noignorecase	" Do case sensitive matching
 set smartcase	" Do smart case matching
 set incsearch	" Incremental search
 set autowrite	" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-
-" My own stuff:
 set number
-set relativenumber
 syntax on
 syntax enable
+set foldmethod=indent
+set foldlevel=99
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -123,6 +126,7 @@ let g:solarized_termcolors=256
 nnoremap <c-b> :bprevious <Enter>
 nnoremap <c-n> :bnext <Enter>
 set pastetoggle=<F2>
+vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F4> :NERDTreeToggle <Enter>
 nnoremap <F5> :w <Enter>
