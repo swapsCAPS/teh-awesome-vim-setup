@@ -97,7 +97,7 @@ endif
 
 set clipboard+=unnamedplus
 set showcmd		" Show (partial) command in status line.
-set noignorecase	" Do case sensitive matching
+set ignorecase
 set smartcase	" Do smart case matching
 set incsearch	" Incremental search
 set autowrite	" Automatically save before commands like :next and :make
