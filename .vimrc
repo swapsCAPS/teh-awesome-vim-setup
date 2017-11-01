@@ -102,7 +102,7 @@ set smartcase	" Do smart case matching
 set incsearch	" Incremental search
 set autowrite	" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
-set number
+set relativenumber
 syntax on
 syntax enable
 set foldmethod=indent
@@ -113,7 +113,7 @@ set softtabstop=4
 set noexpandtab
 iabbrev </ </<C-X><C-O>
 set omnifunc=syntaxcomplete#Complete
-set colorcolumn=80
+set colorcolumn=120
 set clipboard=unnamed
 set timeoutlen=1000 ttimeoutlen=0
 set nowrap
