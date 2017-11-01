@@ -96,13 +96,14 @@ if has("autocmd")
 endif
 
 set clipboard+=unnamedplus
-set showcmd		" Show (partial) command in status line.
+set showcmd
 set ignorecase
-set smartcase	" Do smart case matching
-set incsearch	" Incremental search
-set autowrite	" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
+set smartcase
+set incsearch
+set autowrite
+set hidden
 set relativenumber
+set list
 syntax on
 syntax enable
 set foldmethod=indent
