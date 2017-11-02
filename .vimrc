@@ -134,6 +134,8 @@ nnoremap <F5> :w <Enter>
 nnoremap <F10> :bd <Enter>
 let hlstate=0
 nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+vnoremap <leader>= :EasyAlign=<Enter>
+vnoremap <leader>: :EasyAlign:<Enter>
 
 " Macros yay!
 autocmd FileType coffee nnoremap <F7> oconsole.log "pa", p
