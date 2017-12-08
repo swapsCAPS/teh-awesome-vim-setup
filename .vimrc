@@ -88,6 +88,10 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'bronson/vim-crosshairs'
 
 Plug 'vim-ruby/vim-ruby'
+
+Plug 'othree/html5.vim'
+Plug 'digitaltoad/vim-pug'
+
 call plug#end()
 
 " Jump to the last position when reopening a file
@@ -102,7 +106,7 @@ set smartcase
 set incsearch
 set autowrite
 set hidden
-set relativenumber
+set number relativenumber
 set list
 syntax on
 syntax enable
@@ -170,8 +174,8 @@ inoremap jj <Esc>
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-command! L :colorscheme solarized8_light_flat <bar> :AirlineTheme solarized <bar> :Tmuxline zenburn
-command! D :colorscheme monokai               <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
+command! L :colorscheme solarized8_light <bar> :AirlineTheme solarized <bar> :Tmuxline
+command! D :colorscheme monokai          <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
 
 " Mouse fix for tmux and vim
 set mouse+=a
