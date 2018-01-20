@@ -142,9 +142,7 @@ vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
 
 " Macros yay!
-autocmd FileType coffee nnoremap <F7> oconsole.log "pa", p
 autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
-autocmd FileType javascript nnoremap <F7> oconsole.log("pa", pa)
 autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
 
 " Beautify JSON... BJ, hehehehe
@@ -159,7 +157,8 @@ command! BJ execute "%!python -m json.tool"
 if has('nvim')
   set termguicolors
 endif
-colorscheme monokai
+colorscheme gruvbox
+set background=dark
 
 let g:NERDTreeWinSize = 24
 
@@ -174,8 +173,11 @@ inoremap jj <Esc>
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-command! L :colorscheme solarized8_light <bar> :AirlineTheme solarized <bar> :Tmuxline
-command! D :colorscheme monokai          <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
+command! L :set background=light
+command! D :set background=dark
+
+" command! L :colorscheme solarized8_light_flat <bar> :AirlineTheme solarized <bar> :Tmuxline zenburn
+" command! D :colorscheme monokai               <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
 
 " Mouse fix for tmux and vim
 set mouse+=a
@@ -199,12 +201,12 @@ autocmd! BufWritePost * Neomake
 " Airline stuff:
 set laststatus=2
 let g:airline_powerline_fonts             = 1
-let g:airline_theme                       = 'bubblegum'
+let g:airline_theme                       = 'gruvbox'
 " let g:airline_theme                       = 'solarized'
 let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
-let g:tmuxline_preset                     = 'crosshair'
-let g:tmuxline_theme                      = 'airline'
+" let g:tmuxline_preset                     = 'crosshair'
+" let g:tmuxline_theme                      = 'airline'
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims            = 1
