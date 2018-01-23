@@ -76,10 +76,8 @@ Plug 'junegunn/vim-easy-align'
 
 " base 16 colorschemes : )
 Plug 'chriskempson/base16-vim'
-" ALL THE COLORS
-Plug 'flazz/vim-colorschemes'
 " Gruvbox
-Plug 'morhetz/gruvbox'
+Plug 'swapsCAPS/gruvbox'
 " Oh hai monokai
 Plug 'crusoexia/vim-monokai'
 " So surprised solarized!
