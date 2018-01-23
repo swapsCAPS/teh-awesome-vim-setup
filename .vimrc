@@ -108,8 +108,6 @@ set autowrite
 set hidden
 set number relativenumber
 set list
-syntax on
-syntax enable
 set foldmethod=indent
 set foldlevel=99
 set tabstop=4
@@ -147,18 +145,11 @@ autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
-"
-" Color stuff
-" if filereadable(expand("~/.vimrc_background"))
-  " let base16colorspace=256
-  " source ~/.vimrc_background
-" endif
-" set t_Co=256
-if has('nvim')
-  set termguicolors
-endif
-colorscheme gruvbox
+
 set background=dark
+colorscheme gruvbox
+syntax enable
+syntax on
 
 let g:NERDTreeWinSize = 24
 
