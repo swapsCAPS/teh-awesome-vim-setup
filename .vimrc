@@ -48,6 +48,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " Improved javascript syntax highlighting and indentation
+Plug 'maksimr/vim-jsbeautify'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'crusoexia/vim-javascript-lib'
@@ -196,6 +197,12 @@ let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
 " let g:tmuxline_preset                     = 'crosshair'
 " let g:tmuxline_theme                      = 'airline'
+
+autocmd FileType javascript vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json       vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx        vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html       vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css        vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims            = 1
