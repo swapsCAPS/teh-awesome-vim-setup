@@ -13,7 +13,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Using neomake
 Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
 
 " Emmet for vim
 Plug 'mattn/emmet-vim'
@@ -47,13 +46,13 @@ Plug 'JamshedVesuna/vim-markdown-preview', { 'do': 'pip install --user --upgrade
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
-" Improved javascript syntax highlighting and indentation
-Plug 'maksimr/vim-jsbeautify'
+" JavaScript
+Plug 'dai-shi/es-beautifier', { 'do': 'npm i --only-production', 'rtp': 'contrib/vim' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'crusoexia/vim-javascript-lib'
 
-" Coffee script support
+" CoffeeScript support
 Plug 'kchmck/vim-coffee-script'
 Plug 'mtscout6/vim-cjsx'
 
@@ -199,11 +198,8 @@ let g:airline#extensions#tmuxline#enabled = 0
 " let g:tmuxline_preset                     = 'crosshair'
 " let g:tmuxline_theme                      = 'airline'
 
-autocmd FileType javascript vnoremap <buffer> <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType json       vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx        vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType html       vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css        vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+autocmd FileType javascript nnoremap <buffer> <Leader>e :call EsBeautifier()<cr>
+autocmd FileType javascript vnoremap <buffer> <Leader>e :call RangeEsBeautifier()<cr>
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims            = 1
