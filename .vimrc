@@ -51,6 +51,7 @@ Plug 'dai-shi/es-beautifier', { 'do': 'npm i --only-production', 'rtp': 'contrib
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'crusoexia/vim-javascript-lib'
+Plug 'tpope/vim-jdaddy'
 
 " CoffeeScript support
 Plug 'kchmck/vim-coffee-script'
@@ -89,6 +90,8 @@ Plug 'vim-ruby/vim-ruby'
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
+
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -137,10 +140,21 @@ nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endi
 vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*, <Enter>
-
+vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
 " Macros yay!
 autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
 autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
+
+nnoremap <A-a> <C-a>
+nnoremap <A-x> <C-x>
+
+nnoremap <A-c> df:"P"pP/label2f"lvi"PxF"lyi"/title2f"lvi"PF"l~vi":s/_/ /g/}jdd
+
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<A-w>'
+let g:multi_cursor_prev_key='<A-s>'
+let g:multi_cursor_skip_key='<A-x>'
+let g:multi_cursor_quit_key='<Esc>'
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
