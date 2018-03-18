@@ -50,6 +50,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'crusoexia/vim-javascript-lib'
+Plug 'tpope/vim-jdaddy'
 
 " CoffeeScript support
 Plug 'kchmck/vim-coffee-script'
@@ -88,6 +89,8 @@ Plug 'vim-ruby/vim-ruby'
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
+
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -136,6 +139,7 @@ nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endi
 vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
+vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
 
 " Macros yay!
 autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
@@ -184,7 +188,6 @@ au BufRead,BufNewFile *.cson  set ft=coffee
 " Neomake stuff
 let g:neomake_jsx_enabled_makers        = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
-
 let g:neomake_json_enabled_makers       = ['jsonlint']
 let g:neomake_json5_enabled_makers      = ['jsonlint']
 let g:neomake_coffee_enabled_makers     = ['coffeelint']
