@@ -47,7 +47,6 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " JavaScript
-Plug 'dai-shi/es-beautifier', { 'do': 'npm i --only-production', 'rtp': 'contrib/vim' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'crusoexia/vim-javascript-lib'
@@ -136,11 +135,11 @@ let hlstate=0
 nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
-vnoremap <leader>, :EasyAlign*, <Enter>
+vnoremap <leader>, :EasyAlign*,<Enter>
 
 " Macros yay!
 autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
-autocmd FileType javascript vnoremap <F7> yoconsole.log("pa", pa)
+autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
@@ -163,6 +162,8 @@ inoremap jj <Esc>
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+set backupcopy=yes
+
 command! L :set background=light
 command! D :set background=dark
 
@@ -183,10 +184,27 @@ au BufRead,BufNewFile *.cson  set ft=coffee
 " Neomake stuff
 let g:neomake_jsx_enabled_makers        = ['eslint']
 let g:neomake_javascript_enabled_makers = ['eslint']
+
 let g:neomake_json_enabled_makers       = ['jsonlint']
 let g:neomake_json5_enabled_makers      = ['jsonlint']
 let g:neomake_coffee_enabled_makers     = ['coffeelint']
 autocmd! BufWritePost * Neomake
+
+" Fix js
+let g:neomake_fix_maker = {
+      \ 'exe': 'eslint',
+      \ 'args': ['--fix'],
+      \ }
+
+" Use eslint fix to fix file
+function! Fix()
+  Neomake fix
+  echom "Fixinz!"
+  sleep 1000m
+  e!
+endfunction
+
+nnoremap <leader>f :call Fix()<cr>
 
 " Airline stuff:
 set laststatus=2
@@ -197,9 +215,6 @@ let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
 " let g:tmuxline_preset                     = 'crosshair'
 " let g:tmuxline_theme                      = 'airline'
-
-autocmd FileType javascript nnoremap <buffer> <Leader>e :call EsBeautifier()<cr>
-autocmd FileType javascript vnoremap <buffer> <Leader>e :call RangeEsBeautifier()<cr>
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims            = 1
