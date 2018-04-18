@@ -117,7 +117,6 @@ set noexpandtab
 iabbrev </ </<C-X><C-O>
 set omnifunc=syntaxcomplete#Complete
 set colorcolumn=120
-set clipboard=unnamed
 set timeoutlen=1000 ttimeoutlen=0
 set nowrap
 " Enable cursor crosshair
