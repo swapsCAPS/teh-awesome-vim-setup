@@ -1,8 +1,8 @@
 runtime! debian.vim
-set nocompatible
-filetype off
+set      nocompatible
+filetype plugin indent on
 
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus " I don't recommend this
 set showcmd
 set ignorecase
 set smartcase
@@ -34,5 +34,8 @@ color desert
 " set cursorcolumn
 hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=white
 hi CursorLine  cterm=NONE ctermbg=darkgrey ctermfg=white
+
+nnoremap <F5>  :w <Enter>
+nnoremap <F10> :q <Enter>
 
 set listchars=tab:»\ \,trail:·
