@@ -1,8 +1,9 @@
 runtime! debian.vim
-set      nocompatible
-filetype plugin indent on
+set nocompatible
+filetype off
 
-" set clipboard+=unnamedplus " I don't recommend this
+" yanks to os buffer, but will give weird results as some unexpected operations also yank (such as x, c, etc)
+" set clipboard+=unnamedplus
 set showcmd
 set ignorecase
 set smartcase
@@ -18,8 +19,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set colorcolumn=120
+hi ColorColumn cterm=NONE ctermbg=darkgrey
 set timeoutlen=1000 ttimeoutlen=0
-set nowrap
+set nowrap " Set to wrap if you would like to enable line wrapping
 set background=dark
 " Save all temp madness to one dir, tries all these. Dir must exist. Will not be created
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -30,10 +32,14 @@ syntax enable
 syntax on
 color desert
 
+" sensible splitting
+set splitbelow " Make vertical splits go to bottom
+set splitright " And vertical splits go right
+
+" Enable this if you want cursor crosshairs, mind you that the colors expect a dark theme
 " set cursorline
 " set cursorcolumn
-hi ColorColumn cterm=NONE ctermbg=darkgrey ctermfg=white
-hi CursorLine  cterm=NONE ctermbg=darkgrey ctermfg=white
+" hi CursorLine  cterm=NONE ctermbg=darkgrey
 
 nnoremap <F5>  :w <Enter>
 nnoremap <F10> :q <Enter>
