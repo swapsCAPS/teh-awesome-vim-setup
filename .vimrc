@@ -99,7 +99,7 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 set showcmd
 set ignorecase
 set smartcase
@@ -114,7 +114,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set noexpandtab
-iabbrev </ </<C-X><C-O>
 set omnifunc=syntaxcomplete#Complete
 set colorcolumn=120
 set timeoutlen=1000 ttimeoutlen=0
@@ -132,13 +131,18 @@ vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F4> :NERDTreeToggle <Enter>
 nnoremap <F5> :w <Enter>
+nnoremap <F6> :set hlsearch!<Enter>
 nnoremap <F10> :bd <Enter>
-let hlstate=0
-nnoremap <F6> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
 vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
+
+set listchars=tab:»\ \,trail:·
+
+" sensible splitting
+set splitbelow " Make vertical splits go to bottom
+set splitright " And vertical splits go right
 
 " Macros yay!
 autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
