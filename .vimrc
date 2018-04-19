@@ -19,7 +19,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set colorcolumn=120
-hi ColorColumn cterm=NONE ctermbg=darkgrey
 set timeoutlen=1000 ttimeoutlen=0
 set nowrap " Set to wrap if you would like to enable line wrapping
 set background=dark
@@ -30,16 +29,19 @@ set backupcopy=yes
 set mouse=a
 syntax enable
 syntax on
-color desert
+colorscheme desert
 
 " sensible splitting
 set splitbelow " Make vertical splits go to bottom
 set splitright " And vertical splits go right
 
-" Enable this if you want cursor crosshairs, mind you that the colors expect a dark theme
+" Enable this if you want cursor crosshairs
+" Mind you that the colors expect a dark theme. They also overwrite anything in 'colorscheme' defined above
 " set cursorline
 " set cursorcolumn
 " hi CursorLine  cterm=NONE ctermbg=darkgrey
+
+hi ColorColumn ctermbg=darkgrey
 
 nnoremap <F5>  :w <Enter>
 nnoremap <F10> :q <Enter>
