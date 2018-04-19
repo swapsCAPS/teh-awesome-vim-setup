@@ -2,8 +2,7 @@ runtime! debian.vim
 set nocompatible
 filetype off
 
-" yanks to os buffer, but will give weird results as some unexpected operations also yank (such as x, c, etc)
-" set clipboard+=unnamedplus
+set clipboard+=unnamed
 set showcmd
 set ignorecase
 set smartcase
