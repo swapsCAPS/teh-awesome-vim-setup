@@ -124,8 +124,8 @@ set cursorcolumn
 let w:persistent_cursorline = 1
 let g:solarized_termcolors=256
 " Easily switch buffers
-nnoremap <c-b> :bprevious <Enter>
-nnoremap <c-n> :bnext <Enter>
+nnoremap <C-b> :bprevious <Enter>
+nnoremap <C-n> :bnext <Enter>
 set pastetoggle=<F2>
 vnoremap <F3> :CoffeeCompile <Enter>
 nnoremap <F3> :CoffeeCompile <Enter>
@@ -137,6 +137,18 @@ vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
 vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-S-n>'
+let g:multi_cursor_select_all_word_key = '<A-S-n>'
+let g:multi_cursor_start_key           = 'g<C-S-n>'
+let g:multi_cursor_select_all_key      = 'g<A-S-n>'
+let g:multi_cursor_next_key            = '<C-S-n>'
+let g:multi_cursor_prev_key            = '<C-S-b>'
+let g:multi_cursor_skip_key            = '<C-S-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 set listchars=tab:»\ \,trail:·
 
