@@ -87,6 +87,8 @@ Plug 'bronson/vim-crosshairs'
 
 Plug 'vim-ruby/vim-ruby'
 
+Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
+
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
 
