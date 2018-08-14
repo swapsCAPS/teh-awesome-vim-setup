@@ -12,7 +12,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 
 " Using neomake
-Plug 'neomake/neomake'
+Plug 'neomake/neomake', { 'do': 'npm i -g eslint eslint-config-standard-jsx eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-standard' }
 
 " Emmet for vim
 Plug 'mattn/emmet-vim'
@@ -91,6 +91,10 @@ Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
+
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'npm install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 call plug#end()
 
@@ -198,14 +202,14 @@ autocmd! BufWritePost * Neomake
 
 " Fix js
 let g:neomake_fix_maker = {
-      \ 'exe': 'eslint',
+      \ 'exe': 'npx eslint',
       \ 'args': ['--fix'],
       \ }
 
 " Use eslint fix to fix file
 function! Fix()
   Neomake fix
-  echom "Fixinz!"
+  echom "All teh Fixinz!"
   sleep 1000m
   e!
 endfunction
