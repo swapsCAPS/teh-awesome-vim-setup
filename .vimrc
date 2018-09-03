@@ -43,7 +43,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'JamshedVesuna/vim-markdown-preview', { 'do': 'pip install --user --upgrade grip' }
 
 " Auto completer
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': 'install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " JavaScript
@@ -92,17 +92,11 @@ Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'npm install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'alvan/vim-closetag'
 
 call plug#end()
 
-" Jump to the last position when reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
+filetype plugin indent on
 set clipboard+=unnamed
 set showcmd
 set ignorecase
@@ -142,6 +136,12 @@ vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
 vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
 
+" Jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" White space chars
 set listchars=tab:»\ \,trail:·
 
 " sensible splitting
