@@ -87,7 +87,7 @@ Plug 'bronson/vim-crosshairs'
 
 Plug 'vim-ruby/vim-ruby'
 
-Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
+" Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue eslint-plugin-coffee eslint-plugin-html' }
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
@@ -149,7 +149,7 @@ set splitbelow " Make vertical splits go to bottom
 set splitright " And vertical splits go right
 
 " Macros yay!
-autocmd FileType coffee vnoremap <F7> yoconsole.log "pa", p
+autocmd FileType coffee     vnoremap <F7> yoconsole.log "pa", p
 autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 
 " Beautify JSON... BJ, hehehehe
