@@ -87,7 +87,10 @@ Plug 'bronson/vim-crosshairs'
 
 Plug 'vim-ruby/vim-ruby'
 
+" Too slow...
 " Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue eslint-plugin-coffee eslint-plugin-html' }
+
+Plug 'rust-lang/rust.vim'
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
@@ -135,6 +138,9 @@ vnoremap <leader>= :EasyAlign=<Enter>
 vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
 vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
+
+" Sort words on line
+vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 " Jump to the last position when reopening a file
 if has("autocmd")
