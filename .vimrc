@@ -91,6 +91,8 @@ Plug 'vim-ruby/vim-ruby'
 " Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue eslint-plugin-coffee eslint-plugin-html' }
 
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
