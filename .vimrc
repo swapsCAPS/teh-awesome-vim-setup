@@ -12,7 +12,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 
 " Using neomake
-Plug 'neomake/neomake', { 'do': 'npm i -g eslint eslint-config-standard-jsx eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-react eslint-plugin-standard' }
+Plug 'neomake/neomake'
 
 " Emmet for vim
 Plug 'mattn/emmet-vim'
@@ -26,6 +26,8 @@ Plug 'digitaltoad/vim-jade'
 Plug 'tpope/vim-surround'
 " Enable dot (.) for plugin shorthands
 Plug 'tpope/vim-repeat'
+" Git
+Plug 'tpope/vim-fugitive'
 
 " Auto close brackets, quotes, etc.
 Plug 'jiangmiao/auto-pairs'
@@ -99,6 +101,13 @@ Plug 'digitaltoad/vim-pug'
 
 Plug 'alvan/vim-closetag'
 
+" ugh : /
+Plug 'othree/xml.vim'
+
+Plug 'jparise/vim-graphql'
+
+Plug 'w0rp/ale'
+
 call plug#end()
 
 filetype plugin indent on
@@ -152,6 +161,12 @@ endif
 " White space chars
 set listchars=tab:»\ \,trail:·
 
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fixers = {
+ \ 'javascript': ['eslint']
+ \ }
+
 " sensible splitting
 set splitbelow " Make vertical splits go to bottom
 set splitright " And vertical splits go right
@@ -201,11 +216,6 @@ endif
 au BufRead,BufNewFile *.cson  set ft=coffee
 
 " Neomake stuff
-let g:neomake_jsx_enabled_makers        = ['eslint']
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_json_enabled_makers       = ['jsonlint']
-let g:neomake_json5_enabled_makers      = ['jsonlint']
-let g:neomake_coffee_enabled_makers     = ['coffeelint']
 autocmd! BufWritePost * Neomake
 
 " Fix js
@@ -264,6 +274,8 @@ let g:javascript_enable_domhtmlcss = 1
 let vim_markdown_preview_hotkey='<C-m>'
 " Use github markdown
 let vim_markdown_preview_github=1
+
+let g:prettier#exec_cmd_async = 1
 
 " Mappings to toggle folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
