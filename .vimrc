@@ -49,23 +49,19 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " JavaScript
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'crusoexia/vim-javascript-lib'
-Plug 'tpope/vim-jdaddy'
+" Plug 'pangloss/vim-javascript'
+" Plug 'isruslan/vim-es6'
+" Plug 'chemzqm/vim-jsx-improve'
 
 " CoffeeScript support
 Plug 'kchmck/vim-coffee-script'
 Plug 'mtscout6/vim-cjsx'
 
 " Typescript Syntax for Vim
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 
 " Navigate vim & tmux panes with hjkl
 Plug 'christoomey/vim-tmux-navigator'
-
-" Sublime style minimap
-Plug 'severin-lemaignan/vim-minimap'
 
 " HARD MODE
 Plug 'wikitopian/hardmode'
@@ -161,11 +157,12 @@ endif
 " White space chars
 set listchars=tab:»\ \,trail:·
 
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '🖕'
+let g:ale_sign_warning = '💩'
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
+let g:ale_fix_on_save = 1
 
 " sensible splitting
 set splitbelow " Make vertical splits go to bottom
@@ -274,8 +271,6 @@ let g:javascript_enable_domhtmlcss = 1
 let vim_markdown_preview_hotkey='<C-m>'
 " Use github markdown
 let vim_markdown_preview_github=1
-
-let g:prettier#exec_cmd_async = 1
 
 " Mappings to toggle folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
