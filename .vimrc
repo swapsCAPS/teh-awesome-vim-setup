@@ -52,6 +52,8 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 " Plug 'pangloss/vim-javascript'
 " Plug 'isruslan/vim-es6'
 " Plug 'chemzqm/vim-jsx-improve'
+Plug 'othree/yajs'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " CoffeeScript support
 Plug 'kchmck/vim-coffee-script'
