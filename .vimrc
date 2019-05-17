@@ -53,7 +53,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 " Plug 'isruslan/vim-es6'
 " Plug 'chemzqm/vim-jsx-improve'
 Plug 'othree/yajs'
-" Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " CoffeeScript support
 Plug 'kchmck/vim-coffee-script'
@@ -165,6 +165,8 @@ let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
 let g:ale_fix_on_save = 1
+
+let g:used_javascript_libs = 'underscore,react,requirejs,chai,vue'
 
 " sensible splitting
 set splitbelow " Make vertical splits go to bottom
