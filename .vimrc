@@ -49,7 +49,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': 'install.py --tern-completer' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " JavaScript
-" Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 " Plug 'isruslan/vim-es6'
 " Plug 'chemzqm/vim-jsx-improve'
 Plug 'othree/yajs'
@@ -106,6 +106,8 @@ Plug 'jparise/vim-graphql'
 
 Plug 'w0rp/ale'
 
+Plug 'AndrewRadev/splitjoin.vim'
+
 call plug#end()
 
 filetype plugin indent on
@@ -148,6 +150,8 @@ vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
 vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
 
+nnoremap <leader>n :ALENext<Enter>
+
 " Sort words on line
 vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
@@ -179,7 +183,7 @@ autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
 
-set background=dark
+set background=light
 colorscheme gruvbox
 syntax enable
 syntax on
@@ -267,9 +271,6 @@ let g:mustache_abbreviations = 1
 
 " Auto close tags for these filetypes
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
-
-" vim-javascript stuff
-let g:javascript_enable_domhtmlcss = 1
 
 " We already use ctrl-p
 let vim_markdown_preview_hotkey='<C-m>'
