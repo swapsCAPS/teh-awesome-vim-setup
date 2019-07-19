@@ -108,6 +108,8 @@ Plug 'w0rp/ale'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
+Plug 'yuttie/comfortable-motion.vim'
+
 call plug#end()
 
 filetype plugin indent on
