@@ -154,6 +154,12 @@ vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
 
 nnoremap <leader>n :ALENext<Enter>
 
+let g:comfortable_motion_no_default_key_mappings = 1
+nnoremap <silent> <C-d> :call comfortable_motion#flick(80)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-80)<CR>
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+
 " Sort words on line
 vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
