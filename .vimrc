@@ -46,7 +46,7 @@ Plug 'JamshedVesuna/vim-markdown-preview', { 'do': 'pip install --user --upgrade
 
 " Auto completer
 Plug 'Valloric/YouCompleteMe', { 'do': 'install.py --tern-completer' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
 
 " JavaScript
 Plug 'pangloss/vim-javascript'
@@ -109,6 +109,10 @@ Plug 'w0rp/ale'
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'yuttie/comfortable-motion.vim'
+
+Plug 'leafgarland/typescript-vim'
+
+Plug 'henrik/vim-indexed-search'
 
 call plug#end()
 
@@ -187,11 +191,13 @@ set splitright " And vertical splits go right
 " Macros yay!
 autocmd FileType coffee     vnoremap <F7> yoconsole.log "pa", p
 autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
+autocmd FileType python     vnoremap <F7> yoprint('pa', pa)
+autocmd FileType javascript vnoremap <F8> yodebug('pa %O', pa)
 
 " Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
 
-set background=light
+set background=dark
 colorscheme gruvbox
 syntax enable
 syntax on
@@ -230,22 +236,6 @@ au BufRead,BufNewFile *.cson  set ft=coffee
 
 " Neomake stuff
 autocmd! BufWritePost * Neomake
-
-" Fix js
-let g:neomake_fix_maker = {
-      \ 'exe': 'npx eslint',
-      \ 'args': ['--fix'],
-      \ }
-
-" Use eslint fix to fix file
-function! Fix()
-  Neomake fix
-  echom "All teh Fixinz!"
-  sleep 1000m
-  e!
-endfunction
-
-nnoremap <leader>f :call Fix()<cr>
 
 " Airline stuff:
 set laststatus=2
