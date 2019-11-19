@@ -8,109 +8,66 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Git diff in line number column
 Plug 'airblade/vim-gitgutter'
 
-" Using neomake
 Plug 'neomake/neomake'
 
-" Emmet for vim
 Plug 'mattn/emmet-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
-" Jade beautifier and 2 space indentation
-Plug 'digitaltoad/vim-jade'
-
-" Awesome surroundness
 Plug 'tpope/vim-surround'
-" Enable dot (.) for plugin shorthands
-Plug 'tpope/vim-repeat'
-" Git
+Plug 'tpope/vim-repeat' " Enable dot (.) for plugin shorthands
 Plug 'tpope/vim-fugitive'
 
 " Auto close brackets, quotes, etc.
 Plug 'jiangmiao/auto-pairs'
 
-" Info line at the bottom of the screen
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" tmux statusline integration
 Plug 'edkolev/tmuxline.vim'
 
-" Fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
 
-" Markdown preview
 Plug 'JamshedVesuna/vim-markdown-preview', { 'do': 'pip install --user --upgrade grip' }
 
-" Auto completer
-Plug 'Valloric/YouCompleteMe', { 'do': 'install.py --tern-completer' }
-" Plug 'ternjs/tern_for_vim', { 'do': 'npm i' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" JavaScript
-Plug 'pangloss/vim-javascript'
-" Plug 'isruslan/vim-es6'
-" Plug 'chemzqm/vim-jsx-improve'
-Plug 'othree/yajs'
-Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'sheerun/vim-polyglot'
 
-" CoffeeScript support
-Plug 'kchmck/vim-coffee-script'
-Plug 'mtscout6/vim-cjsx'
-
-" Typescript Syntax for Vim
-" Plug 'leafgarland/typescript-vim'
-
-" Navigate vim & tmux panes with hjkl
 Plug 'christoomey/vim-tmux-navigator'
 
-" HARD MODE
-Plug 'wikitopian/hardmode'
+Plug 'wikitopian/hardmode' " please dont : p
 
-" Highlight color codes
 Plug 'ap/vim-css-color'
 
-" Easy align
 Plug 'junegunn/vim-easy-align'
 
-" base 16 colorschemes : )
 Plug 'chriskempson/base16-vim'
-" Gruvbox
+
 Plug 'swapsCAPS/gruvbox'
-" Oh hai monokai
-Plug 'crusoexia/vim-monokai'
-" So surprised solarized!
-Plug 'lifepillar/vim-solarized8'
-" Crosshairs w00t
+
 Plug 'bronson/vim-crosshairs'
 
 Plug 'vim-ruby/vim-ruby'
 
-" Too slow...
-" Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue eslint-plugin-coffee eslint-plugin-html' }
-
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
-
 
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'
 
 Plug 'alvan/vim-closetag'
 
-" ugh : /
 Plug 'othree/xml.vim'
 
-Plug 'jparise/vim-graphql'
+" Plug 'jparise/vim-graphql'
 
 Plug 'w0rp/ale'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'yuttie/comfortable-motion.vim'
-
-Plug 'leafgarland/typescript-vim'
 
 Plug 'henrik/vim-indexed-search'
 
@@ -182,8 +139,6 @@ let g:ale_fixers = {
  \ }
 let g:ale_fix_on_save = 1
 
-let g:used_javascript_libs = 'underscore,react,requirejs,chai,vue'
-
 " sensible splitting
 set splitbelow " Make vertical splits go to bottom
 set splitright " And vertical splits go right
@@ -194,7 +149,6 @@ autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 autocmd FileType python     vnoremap <F7> yoprint('pa', pa)
 autocmd FileType javascript vnoremap <F8> yodebug('pa %O', pa)
 
-" Beautify JSON... BJ, hehehehe
 command! BJ execute "%!python -m json.tool"
 
 set background=dark
@@ -220,9 +174,6 @@ set backupcopy=yes
 command! L :set background=light
 command! D :set background=dark
 
-" command! L :colorscheme solarized8_light_flat <bar> :AirlineTheme solarized <bar> :Tmuxline zenburn
-" command! D :colorscheme monokai               <bar> :AirlineTheme bubblegum <bar> :Tmuxline zenburn
-
 " Mouse fix for tmux and vim
 set mouse+=a
 if &term =~ '^screen'
@@ -237,15 +188,17 @@ au BufRead,BufNewFile *.cson  set ft=coffee
 " Neomake stuff
 autocmd! BufWritePost * Neomake
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
 " Airline stuff:
 set laststatus=2
 let g:airline_powerline_fonts             = 1
 let g:airline_theme                       = 'gruvbox'
-" let g:airline_theme                       = 'solarized'
 let g:airline#extensions#tabline#enabled  = 1
 let g:airline#extensions#tmuxline#enabled = 0
-" let g:tmuxline_preset                     = 'crosshair'
-" let g:tmuxline_theme                      = 'airline'
 
 " Nerd commenter stuff
 let g:NERDSpaceDelims            = 1
@@ -308,3 +261,17 @@ endfunction
 command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-args>)
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
+
+" https://github.com/crux/crux-vimrc/blob/master/plugin/unicode.vim
+command! -range -nargs=0 Overline        call s:CombineSelection(<line1>, <line2>, '0305')
+command! -range -nargs=0 Underline       call s:CombineSelection(<line1>, <line2>, '0332')
+command! -range -nargs=0 DoubleUnderline call s:CombineSelection(<line1>, <line2>, '0333')
+command! -range -nargs=0 Strikethrough   call s:CombineSelection(<line1>, <line2>, '0336')
+
+function! s:CombineSelection(line1, line2, cp)
+  execute 'let char = "\u'.a:cp.'"'
+  execute a:line1.','.a:line2.'s/\%V[^[:cntrl:]]/&'.char.'/ge'
+endfunction
+
+vnoremap -- :Strikethrough<CR>
+vnoremap __ :Underline<CR>
