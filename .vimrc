@@ -10,8 +10,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'neomake/neomake'
-
 Plug 'mattn/emmet-vim'
 
 Plug 'editorconfig/editorconfig-vim'
@@ -63,7 +61,7 @@ Plug 'othree/xml.vim'
 
 " Plug 'jparise/vim-graphql'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
@@ -144,6 +142,7 @@ set splitbelow " Make vertical splits go to bottom
 set splitright " And vertical splits go right
 
 " Macros yay!
+autocmd FileType rust       vnoremap <F7> yoprintln!("pa {}", pa);
 autocmd FileType coffee     vnoremap <F7> yoconsole.log "pa", p
 autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 autocmd FileType python     vnoremap <F7> yoprint('pa', pa)
@@ -157,6 +156,8 @@ syntax enable
 syntax on
 
 let g:NERDTreeWinSize = 24
+
+let g:racer_experimental_completer = 1
 
 " Ctrl-A is used for tmux, but we want vim's inc dec functionality
 nnoremap <C-up>   <c-a>
@@ -184,9 +185,6 @@ endif
 
 " cson is coffeescript
 au BufRead,BufNewFile *.cson  set ft=coffee
-
-" Neomake stuff
-autocmd! BufWritePost * Neomake
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
