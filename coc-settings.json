@@ -3,5 +3,7 @@
   "eslint.filetypes": [
    "javascript",
    "vue"
-  ]
+  ],
+
+  "coc.preferences.formatOnSaveFiletypes": [ "rust" ]
 }

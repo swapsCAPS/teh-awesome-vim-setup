@@ -8,7 +8,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-
 Plug 'airblade/vim-gitgutter'
 
 Plug 'mattn/emmet-vim'
@@ -34,8 +33,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'ap/vim-css-color'
-
 Plug 'junegunn/vim-easy-align'
 
 Plug 'chriskempson/base16-vim'
@@ -45,6 +42,11 @@ Plug 'bronson/vim-crosshairs'
 Plug 'yuttie/comfortable-motion.vim'
 
 Plug 'henrik/vim-indexed-search'
+
+Plug 'delphinus/vim-firestore'
+Plug 'nicholaschiang/firestore-rules-vim-syntax'
+
+Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
@@ -104,6 +106,7 @@ set listchars=tab:»\ \,trail:·
 
 " Macros yay!
 autocmd FileType rust       vnoremap <F7> yoprintln!("pa {}", pa);
+autocmd FileType rust       vnoremap <F8> yodebug!("pa {}", pa);
 autocmd FileType coffee     vnoremap <F7> yoconsole.log "pa", p
 autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 autocmd FileType python     vnoremap <F7> yoprint('pa', pa)
@@ -126,6 +129,8 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set backupcopy=yes
+
+au BufRead,BufNewFile *.html.tera set filetype=html
 
 " Mouse fix for tmux and vim
 set mouse+=a
@@ -150,12 +155,17 @@ let g:airline_extensions = ['branch', 'hunks', 'coc']
 let g:NERDSpaceDelims            = 1
 let g:NERDTrimTrailingWhitespace = 1
 
+" Nerd tree stuff
+let g:NERDTreeWinSize = 24
+
 " Ctrl-p
 " Ignore certain stuff
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$|build$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_root_markers = ['.ctrlproot', '.git']
 
 " Fix editorconfig + fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -164,7 +174,8 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
-
+" Needed for gitblame
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
 "
 " #### Space2Tab Tab2Space ####
@@ -199,7 +210,9 @@ command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-arg
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
 
-
+" Don't format csv files
+let g:csv_no_conceal = 1
+" NOTE :CSVTabularize is a really cool cmd
 
 "
 " #### COC CONFIG ####
