@@ -1,9 +1,15 @@
 {
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
+  "eslint.format.enable": true,
+  "eslint.validate": [
    "javascript",
    "vue"
   ],
-
-  "coc.preferences.formatOnSaveFiletypes": [ "rust" ]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "rust",
+    "python"
+  ],
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.cargo.loadOutDirsFromCheck": true
 }

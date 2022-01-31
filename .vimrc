@@ -9,6 +9,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-rooter'
 
 Plug 'mattn/emmet-vim'
 
@@ -25,7 +26,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
@@ -39,7 +41,7 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'bronson/vim-crosshairs'
 
-Plug 'yuttie/comfortable-motion.vim'
+" Plug 'yuttie/comfortable-motion.vim'
 
 Plug 'henrik/vim-indexed-search'
 
@@ -60,7 +62,6 @@ set autowrite
 set hidden
 set number relativenumber
 set list
-set foldmethod=indent
 set foldlevel=99
 set tabstop=4
 set shiftwidth=4
@@ -92,11 +93,11 @@ vnoremap <leader>: :EasyAlign:<Enter>
 vnoremap <leader>, :EasyAlign*,<Enter>
 vnoremap <leader><Space> :'<,'>EasyAlign\ <Enter>
 
-let g:comfortable_motion_no_default_key_mappings = 1
-nnoremap <silent> <C-d> :call comfortable_motion#flick(80)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(-80)<CR>
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+" let g:comfortable_motion_no_default_key_mappings = 1
+" nnoremap <silent> <C-d> :call comfortable_motion#flick(80)<CR>
+" nnoremap <silent> <C-u> :call comfortable_motion#flick(-80)<CR>
+" noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+" noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 
 " Sort words on line
 vnoremap <C-s> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
@@ -111,6 +112,8 @@ autocmd FileType coffee     vnoremap <F7> yoconsole.log "pa", p
 autocmd FileType javascript vnoremap <F7> yoconsole.log('pa', pa)
 autocmd FileType python     vnoremap <F7> yoprint('pa', pa)
 autocmd FileType javascript vnoremap <F8> yodebug('pa %O', pa)
+
+autocmd FileType markdown setlocal wrap
 
 command! BJ execute "%!python -m json.tool"
 
@@ -140,6 +143,26 @@ if &term =~ '^screen'
   endif
 endif
 
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+" command! -bang -nargs=? -complete=dir Files
+    " \ call fzf#vim#files(<q-args>, { 'options': ['--layout=reverse', '--info=inline']}, <bang>0)
+nnoremap <C-p> :Files<Enter>
+
+
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
@@ -157,15 +180,6 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Nerd tree stuff
 let g:NERDTreeWinSize = 24
-
-" Ctrl-p
-" Ignore certain stuff
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$|node_modules$|build$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_root_markers = ['.ctrlproot', '.git']
 
 " Fix editorconfig + fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
@@ -209,6 +223,20 @@ endfunction
 command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-args>)
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
+
+" " Ripgrep
+" command! -bang -nargs=* Rg
+  " \ call fzf#vim#grep(
+  " \   'rg --column --line-number --heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  " \   fzf#vim#with_preview(), <bang>0)
+
+" fzf.vim
+
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \ "rg --column --line-number --no-heading --color=always --smart-case -- "
+      \ .shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0
+      \ )
 
 " Don't format csv files
 let g:csv_no_conceal = 1
