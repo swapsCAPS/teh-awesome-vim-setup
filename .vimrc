@@ -405,6 +405,10 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" CocMenuSel seems borken without this?
+hi! link CocMenuSel Cursor
+" Tweak type hint color to look like comment
+hi! link CocInlayHint Comment
 
 " vim-test stuff
 let test#strategy = "neovim"
