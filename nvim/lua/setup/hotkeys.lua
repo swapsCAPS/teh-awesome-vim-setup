@@ -1,0 +1,16 @@
+vim.api.nvim_set_keymap('n', '<F3>', ":CoffeeCompile <Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<F4>', ":NvimTreeToggle <Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<F5>',  ":w <Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<F6>',  ":set hlsearch!<Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<F10>', ":bd <Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>=', ":EasyAlign=<Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>:', ":EasyAlign:<Enter>", { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>,', ":EasyAlign*,<Enter>", { noremap = true })
+
+vim.api.nvim_set_keymap('i', 'jj', "<Esc>", { noremap = true })
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
