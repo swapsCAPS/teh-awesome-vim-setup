@@ -1,6 +1,6 @@
 # teh-awesome-vim-setup
 
-<img src="https://github.com/swapsCAPS/teh-awesome-vim-setup/blob/master/screenshot.png" width="800" />
+[]("https://github.com/swapsCAPS/teh-awesome-vim-setup/blob/master/screenshot.png")
 
 ### Install for Neovim
 ```
