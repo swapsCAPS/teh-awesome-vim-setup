@@ -1,6 +1,6 @@
 # teh-awesome-vim-setup
 
-[Screenshot]("screenshot.png")
+[Screenshot](screenshot.png)
 
 ### Install for Neovim
 ```
