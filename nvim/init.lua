@@ -2,6 +2,7 @@ require("setup.lazy")
 require("setup.vimopts")
 require("setup.helpers")
 require("setup.hotkeys")
+require("setup.tree-sitter")
 
 require("nvim-tree").setup()
 require("lualine").setup()

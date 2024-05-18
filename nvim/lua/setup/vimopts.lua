@@ -30,4 +30,4 @@ vim.opt.listchars = { trail = '·', tab = '» ' }
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
-vim.cmd("colorscheme gruvbox-material")
+vim.cmd("colorscheme tokyonight")
