@@ -1,5 +1,6 @@
 vim.opt.filetype = "on"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.signcolumn = "yes"
 vim.opt.showcmd = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -19,8 +20,9 @@ vim.opt.linebreak = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.wrap = true
--- vim.opt.listchars = { tab = '»', trail = '·' }
 vim.opt.listchars = { trail = '·', tab = '» ' }
+vim.opt.spell = true
+vim.opt.spelllang = {"en_us", "nl"}
 
 -- Cursor crosshair
 vim.opt.cursorline = true
