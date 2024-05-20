@@ -1,7 +1,3 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- vim.opt.termguicolors = true
 vim.opt.filetype = "on"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.showcmd = true
