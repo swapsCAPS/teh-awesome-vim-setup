@@ -8,8 +8,8 @@
 - [ ] Test `cmp` `rg` functionality
 - [ ] Get prettier to work
 - [ ] Test eslint stuff
-- [ ] Rename symbol with F2
-- [ ] Padding for error codes in linenumber bar
+- [x] Rename symbol with F2
+- [x] Padding for error codes in linenumber bar
 - [x] Fix easy-align
 - [ ] lsp folding
 - [x] Show diagnostic hover vim.diagnostic.open_float()
