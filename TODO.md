@@ -4,7 +4,7 @@
 - [ ] Understand spell check underline
 - [ ] Spell suggestion popup?
 - [ ] How to add word to dictionary
-- [ ] Disable `cmp` stuffs?
+- [x] Disable `cmp` stuffs?
 - [ ] Test `cmp` `rg` functionality
 - [ ] Get prettier to work
 - [ ] Test eslint stuff
