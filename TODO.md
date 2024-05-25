@@ -5,7 +5,7 @@
 - [ ] How to add word to dictionary
 - [x] Disable `cmp` stuffs?
 - [ ] Test `cmp` `rg` functionality
-- [ ] Get prettier to work
+- [x] Get prettier to work
 - [ ] Test eslint stuff
 - [x] Rename symbol with F2
 - [x] Padding for error codes in linenumber bar
