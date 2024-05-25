@@ -1,6 +1,5 @@
 # TODO
 
-- [ ] Map `gd`, or get used to Ctrl-] for go-to-definition
 - [ ] Understand spell check underline
 - [ ] Spell suggestion popup?
 - [ ] How to add word to dictionary
