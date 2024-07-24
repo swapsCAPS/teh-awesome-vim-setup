@@ -21,9 +21,7 @@ vim.keymap.set('v', '<leader>,', ':EasyAlign*,<Enter>', {})
 
 vim.keymap.set('i', 'jj', '<Esc>', {})
 
-vim.keymap.set('n', '<leader>of', vim.diagnostic.open_float, {
-  desc = [[Open float window (using <leader>ki since vscode uses cmd-k_cmd-i binding)]]
-})
+vim.keymap.set('n', '<leader>of', vim.diagnostic.open_float, {})
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
 vim.keymap.set('n', '<leader>fo', vim.lsp.buf.format, {})
@@ -36,3 +34,6 @@ vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<leader>rg', telescope.live_grep, {})
 vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
 vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+
+vim.keymap.set('n', ']g', vim.diagnostic.goto_next, {})
+vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, {})

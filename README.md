@@ -10,3 +10,9 @@ mkdir -p ~/.config/nvim
 ln -s ~/src/teh-awesome-vim-setup/nvim ~/.config/
 nvim
 ```
+
+### Installing spell files
+```
+nvim -u NORC
+set spelllang=...
+```

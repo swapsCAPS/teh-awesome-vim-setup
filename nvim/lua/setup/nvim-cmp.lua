@@ -43,9 +43,7 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<Tab>'] = cmp.mapping(OnTab, { 'i', 's' }),
     ['<Shift-Tab>'] = cmp.mapping(OnShiftTab, { 'i', 's' }),
-    ['<C-Space>'] = cmp.mapping.complete({
-      config = { sources = { { name = 'nvim_lsp' } } }
-    }),
+    ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     ['<C-g>'] = function()
@@ -56,9 +54,9 @@ cmp.setup({
       end
     end
   }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-  }, {
-    { name = 'buffer' }
-  })
+  sources = cmp.config.sources(
+    { { name = 'nvim_lsp' } },
+    { { name = 'path' } },
+    { { name = 'buffer' } }
+  )
 })
