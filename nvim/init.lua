@@ -6,6 +6,7 @@ require("setup.vimopts")
 require("setup.hotkeys")
 require("setup.helpers")
 require("setup.nvim-treesitter")
+require("setup.nvim-java") -- Needs to be set up before lspconfig
 require("setup.neoconf") -- Needs to be set up before lspconfig
 require("setup.nvim-lspconfig")
 require("setup.nvim-cmp")
