@@ -1,8 +1,10 @@
 # TODO
 
-- [ ] Understand spell check underline
-- [ ] Spell suggestion popup?
-- [ ] How to add word to dictionary
+- [ ] nvim-dap stuffs
+- [ ] nvim-test stuffs
+- [x] Understand spell check underline
+- [x] Spell suggestion popup? -> `code_action`
+- [x] How to add word to dictionary -> `zg`
 - [x] Disable `cmp` stuffs?
 - [ ] Test `cmp` `rg` functionality
 - [x] Get prettier to work
@@ -10,5 +12,6 @@
 - [x] Rename symbol with F2
 - [x] Padding for error codes in linenumber bar
 - [x] Fix easy-align
-- [ ] lsp folding
+- [x] lsp folding -> `zo` & `zc`
 - [x] Show diagnostic hover vim.diagnostic.open_float()
+- [ ] Invert horizontal mouse scrolling so it's _natural_

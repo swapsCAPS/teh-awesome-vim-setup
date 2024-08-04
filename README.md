@@ -11,8 +11,12 @@ ln -s ~/src/teh-awesome-vim-setup/nvim ~/.config/
 nvim
 ```
 
-### Installing spell files
+### Instaling spell files
 ```
 nvim -u NORC
-set spelllang=...
+:set spelllang=...
 ```
+
+### Settings and hoteys
+See (vimopts)[./nvim/lua/setup/vimopts.lua]
+See (hotkeys)[./nvim/lua/setup/hotkeys.lua]

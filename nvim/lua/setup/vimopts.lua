@@ -8,7 +8,6 @@ vim.opt.incsearch = true
 vim.opt.autowrite = true
 vim.opt.hidden = true
 vim.opt.number = true
-vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -21,13 +20,9 @@ vim.opt.ttimeoutlen = 0
 vim.opt.wrap = true
 vim.opt.listchars = { trail = '·', tab = '» ' }
 vim.opt.spell = true
-vim.opt.spelllang = { 'en_us', 'nl' }
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.spelllang = { 'en', 'nl' }
 vim.opt.foldlevel = 99
+vim.opt.mousescroll = "ver:1,hor:1" -- TODO invert horizontal scrolling
 
--- Cursor crosshair
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
-
-vim.cmd('colorscheme tokyonight')
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

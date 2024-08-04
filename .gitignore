@@ -1,1 +1,3 @@
 .DS_Store
+nvim/spell/*.add
+nvim/spell/*.add.spl
