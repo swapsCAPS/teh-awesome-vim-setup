@@ -14,6 +14,8 @@ conform.setup({
       -- TODO check for eslint config and use it if it exists
       return { { "prettierd", "prettier" } }
     end,
+    xml = { "xmllint" },
+    markdown = { "prettierd", "prettier" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
