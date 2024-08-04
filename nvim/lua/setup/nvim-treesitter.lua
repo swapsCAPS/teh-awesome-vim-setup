@@ -1,7 +1,40 @@
-require('nvim-treesitter.configs').setup({
-  highlight = { enable = true }
+require("nvim-treesitter.configs").setup({
+  ensure_installed = {
+    "arduino",
+    "bash",
+    "bicep",
+    "dockerfile",
+    "editorconfig",
+    "go",
+    "graphql",
+    "java",
+    "javascript",
+    "jq",
+    "jsdoc",
+    "json",
+    "json5",
+    "jsonnet",
+    "kotlin",
+    "lua",
+    "markdown",
+    "markdown_inline",
+    "powershell",
+    "python",
+    "query",
+    "rust",
+    "svelte",
+    "terraform",
+    "tmux",
+    "toml",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+  },
+  highlight = { enable = true },
 })
-require('treesitter-context').setup {
-  mode = 'topline', -- Line used to calculate context. Choices: 'cursor', 'topline'
-  separator = '─'
-}
+require("treesitter-context").setup({
+  mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
+  separator = "─",
+})
