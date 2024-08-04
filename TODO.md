@@ -2,6 +2,7 @@
 
 - [ ] nvim-dap stuffs
 - [ ] nvim-test stuffs
+- [ ] Auto install Mason stuff
 - [x] Understand spell check underline
 - [x] Spell suggestion popup? -> `code_action`
 - [x] How to add word to dictionary -> `zg`
