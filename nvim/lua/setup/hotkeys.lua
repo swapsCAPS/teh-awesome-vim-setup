@@ -1,6 +1,7 @@
 local nvimTree = require("nvim-tree.api")
 local telescope = require("telescope.builtin")
 local neogit = require("neogit")
+local dapui = require("dapui")
 
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, {})
 vim.keymap.set("n", "<F3>", neogit.open, {})
@@ -13,6 +14,9 @@ vim.keymap.set("v", "<leader>:", ":EasyAlign:<Enter>", {})
 vim.keymap.set("v", "<leader>,", ":EasyAlign*,<Enter>", {})
 
 vim.keymap.set("i", "jj", "<Esc>", {})
+
+vim.keymap.set("n", "<leader>d", dapui.float_element, {})
+vim.keymap.set("n", "<leader>D", dapui.toggle, {})
 
 vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})

@@ -3,7 +3,7 @@ require("setup.lazy")
 require("setup.comment")
 require("setup.conform")
 require("setup.vimopts")
-require("setup.hotkeys")
+require("setup.nvim-dap-ui")
 require("setup.helpers")
 require("setup.nvim-treesitter")
 require("setup.nvim-java") -- Needs to be set up before lspconfig
@@ -12,6 +12,7 @@ require("setup.nvim-lspconfig")
 require("setup.nvim-cmp")
 require("setup.nvim-tree")
 require("setup.telescope")
+require("setup.hotkeys")
 
 require("lualine").setup()
 
