@@ -42,6 +42,8 @@ vim.keymap.set("n", "<leader>fh", telescope.help_tags, {})
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next, {})
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, {})
 
+vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context(vim.v.count1)
 end, { silent = true })
