@@ -14,6 +14,7 @@ conform.setup({
       -- TODO check for eslint config and use it if it exists
       return { { "prettierd", "prettier" } }
     end,
+    vue = { "prettierd", "prettier" },
     xml = { "xmllint" },
     markdown = { "prettierd", "prettier" },
   },
