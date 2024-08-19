@@ -9,6 +9,7 @@
   "cmp-vsnip": { "branch": "main", "commit": "989a8a73c44e926199bfd05fa7a516d51f2d2752" },
   "conform.nvim": { "branch": "master", "commit": "25d48271e3d4404ba017cb92a37d3a681c1ad149" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
+  "emmet-vim": { "branch": "master", "commit": "6c511a8d7d2863066f32e25543e2bb99d505172c" },
   "gruvbox-material": { "branch": "master", "commit": "91f8170a31ae6e31670629cd339df297dbd5fd5f" },
   "lazy.nvim": { "branch": "main", "commit": "077102c5bfc578693f12377846d427f49bc50076" },
   "lazydev.nvim": { "branch": "main", "commit": "491452cf1ca6f029e90ad0d0368848fac717c6d2" },
