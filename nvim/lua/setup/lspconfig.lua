@@ -1,12 +1,37 @@
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "emmet_language_server",
+    "lua_ls",
+    "helm_ls",
+    "jdtls",
+    "rust_analyzer",
+    "tsserver",
+    "marksman",
+    "bashls",
+    "volar",
+    "docker_compose_language_service",
+    "dockerls",
+    "yamlls",
+  }
+})
+
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local mason_registry = require("mason-registry")
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server"
+    .. "/node_modules/@vue/language-server"
 
 lspconfig.jdtls.setup({})
 
+lspconfig.marksman.setup({})
+
 lspconfig.bashls.setup({})
+
+lspconfig.emmet_language_server.setup({})
+
+lspconfig.docker_compose_language_service.setup({})
+
+lspconfig.dockerls.setup({})
 
 lspconfig.rust_analyzer.setup({
   settings = {
