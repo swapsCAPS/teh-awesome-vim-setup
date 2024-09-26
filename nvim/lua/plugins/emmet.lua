@@ -1,3 +1,4 @@
 return {
-	"mattn/emmet-vim"
+  "mattn/emmet-vim",
+  lazy = true,
 }

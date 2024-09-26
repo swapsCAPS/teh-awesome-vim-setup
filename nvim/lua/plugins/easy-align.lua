@@ -1,3 +1,4 @@
 return {
-  "junegunn/vim-easy-align"
+  "junegunn/vim-easy-align",
+  lazy = true,
 }

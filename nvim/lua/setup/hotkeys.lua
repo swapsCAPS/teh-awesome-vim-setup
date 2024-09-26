@@ -39,8 +39,12 @@ vim.keymap.set("n", "<C-B>", telescope.buffers, { desc = "Telescope open buffers
 vim.keymap.set("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition", noremap = true, silent = true })
-vim.keymap.set("n", "gu", telescope.lsp_references,
-  { desc = "Telescope LSP references (usages)", noremap = true, silent = true })
+vim.keymap.set(
+  "n",
+  "gu",
+  telescope.lsp_references,
+  { desc = "Telescope LSP references (usages)", noremap = true, silent = true }
+)
 
 vim.keymap.set("n", "[c", function()
   require("treesitter-context").go_to_context(vim.v.count1)
