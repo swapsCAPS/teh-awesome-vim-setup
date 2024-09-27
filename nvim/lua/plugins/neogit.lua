@@ -5,6 +5,16 @@ return {
     "sindrets/diffview.nvim", -- optional - Diff integration
     "nvim-telescope/telescope.nvim", -- optional
   },
-  config = true,
-  lazy = true,
+  keys = {
+    {
+      "<leader>ng",
+      function()
+        require("neogit").open()
+      end,
+      desc = "Open NeoGit",
+    },
+  },
+  config = function()
+    require("neogit").setup({})
+  end,
 }

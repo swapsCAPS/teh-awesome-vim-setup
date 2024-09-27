@@ -21,5 +21,6 @@ return {
         "yamlls",
       },
     },
+    lazy = true,
   },
 }

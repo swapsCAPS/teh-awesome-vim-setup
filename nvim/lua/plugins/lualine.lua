@@ -6,5 +6,5 @@ return {
       theme = "tokyonight",
     },
   },
-  lazy = false,
+  event = "VeryLazy",
 }

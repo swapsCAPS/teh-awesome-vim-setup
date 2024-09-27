@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   lazy = true,
-  init = function()
+  config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local mason_registry = require("mason-registry")

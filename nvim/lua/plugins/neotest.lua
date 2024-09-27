@@ -1,6 +1,7 @@
 return {
   {
     "rcasia/neotest-java",
+    lazy = true,
   },
   {
     "nvim-neotest/neotest",
@@ -15,5 +16,6 @@ return {
         ["neotest-java"] = {},
       },
     },
+    lazy = true,
   },
 }

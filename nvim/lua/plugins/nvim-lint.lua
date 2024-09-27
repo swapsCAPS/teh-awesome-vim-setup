@@ -1,15 +1,14 @@
 return {
   "mfussenegger/nvim-lint",
   lazy = true,
-  init = function()
-    local lint = require("lint")
-
-    lint.linters_by_ft = {
+  opts = {
+    linters_by_ft = {
       markdown = { "vale" },
       yaml = { "yamllint" },
       ghaction = { "actionlint" },
-    }
-
+    },
+  },
+  init = function()
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
         -- try_lint without arguments runs the linters defined in `linters_by_ft`

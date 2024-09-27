@@ -1,3 +1,4 @@
 return {
-  "sainnhe/gruvbox-material"
+  "sainnhe/gruvbox-material",
+  enabled = false,
 }
