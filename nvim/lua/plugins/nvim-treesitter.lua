@@ -5,7 +5,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    lazy = true,
+    lazy = false,
     init = function()
       return {
         ensure_installed = {

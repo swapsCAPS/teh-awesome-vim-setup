@@ -24,6 +24,7 @@ return {
           "--line-number",
           "--column",
           "--smart-case",
+          "--hidden",
           "--trim",
         },
       },
@@ -33,35 +34,35 @@ return {
     {
       "<C-P>",
       function()
-        require("telescope").find_files()
+        require("telescope.builtin").find_files()
       end,
       desc = "find files",
     },
     {
       "<C-F>",
       function()
-        require("telescope").grep_string({ search = "" })
+        require("telescope.builtin").grep_string({ search = "" })
       end,
       desc = "Fuzzy find",
     },
     {
       "<C-B>",
       function()
-        require("telescope").buffers()
+        require("telescope.builtin").buffers()
       end,
       desc = "Telescope open buffers",
     },
     {
       "<leader>fh",
       function()
-        require("telescope").help_tags()
+        require("telescope.builtin").help_tags()
       end,
       desc = "Telescope help tags",
     },
     {
       "gu",
       function()
-        require("telescope").lsp_references()
+        require("telescope.builtin").lsp_references()
       end,
       desc = "Telescope LSP references (usages)",
     },

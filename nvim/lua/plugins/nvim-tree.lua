@@ -16,7 +16,7 @@ return {
     {
       "<F4>",
       function()
-        require("nvim-tree").tree.toggle()
+        require("nvim-tree.api").tree.toggle()
       end,
       desc = "Toggle file tree",
     },

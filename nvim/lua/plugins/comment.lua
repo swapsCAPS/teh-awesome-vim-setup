@@ -1,12 +1,12 @@
 return {
   "numToStr/Comment.nvim",
-  lazy = false,
+  event = "BufEnter",
   opts = {
     toggler = {
-      line = '<C-_>',
+      line = "<C-_>",
     },
     opleader = {
-      line = '<C-_>',
-    }
+      line = "<C-_>",
+    },
   },
 }

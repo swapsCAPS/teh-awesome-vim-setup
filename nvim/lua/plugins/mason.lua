@@ -12,7 +12,7 @@ return {
         "helm_ls",
         "jdtls",
         "rust_analyzer",
-        "tsserver",
+        "ts_ls",
         "marksman",
         "bashls",
         "volar",

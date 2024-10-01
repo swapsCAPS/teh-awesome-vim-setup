@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  lazy = true,
+  lazy = false,
   config = function()
     local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -28,9 +28,9 @@ return {
       },
     })
 
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       settings = {
-        ["tsserver"] = {},
+        ["ts_ls"] = {},
       },
       init_options = {
         plugins = {
