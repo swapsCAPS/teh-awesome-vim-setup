@@ -6,6 +6,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
   },
+  opts = {},
   config = function()
     require("startup").setup()
   end,

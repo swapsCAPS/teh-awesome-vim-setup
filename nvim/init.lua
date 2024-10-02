@@ -1,6 +1,6 @@
 require("setup.before")
 require("setup.filetypes")
-require("setup.lazy")
 require("setup.vimopts")
+require("setup.lazy")
 require("setup.helpers")
 require("setup.hotkeys")
