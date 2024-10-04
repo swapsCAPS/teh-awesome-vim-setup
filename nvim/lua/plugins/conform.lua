@@ -9,15 +9,15 @@ return {
       -- Use a sub-list to run only the first available formatter
       javascript = function()
         -- TODO check for eslint config and use it if it exists
-        return { { "prettierd", "prettier" } }
+        return { "prettierd", "prettier", stop_after_first = true }
       end,
       typescript = function()
         -- TODO check for eslint config and use it if it exists
-        return { { "prettierd", "prettier" } }
+        return { "prettierd", "prettier", stop_after_first = true }
       end,
-      vue = { "prettierd", "prettier" },
+      vue = { "prettierd", "prettier", stop_after_first = true },
       -- xml = { "xmllint" },
-      markdown = { "prettierd", "prettier" },
+      markdown = { "prettierd", "prettier", stop_after_first = true },
     },
     format_on_save = {
       -- These options will be passed to conform.format()
