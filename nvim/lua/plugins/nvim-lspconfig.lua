@@ -22,6 +22,8 @@ return {
 
     lspconfig.dockerls.setup({})
 
+    lspconfig.gopls.setup({})
+
     lspconfig.rust_analyzer.setup({
       settings = {
         ["rust-analyzer"] = {},
