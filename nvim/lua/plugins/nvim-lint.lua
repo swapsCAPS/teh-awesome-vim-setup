@@ -1,14 +1,16 @@
 return {
   "mfussenegger/nvim-lint",
-  lazy = true,
-  opts = {
-    linters_by_ft = {
+  event = "BufEnter",
+  config = function()
+    local lint = require("lint")
+
+    -- Bit weird, but it seems you can't pass this to opts : /
+    lint.linters_by_ft = {
       markdown = { "vale" },
       yaml = { "yamllint" },
       ghaction = { "actionlint" },
-    },
-  },
-  config = function()
+    }
+
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
         -- try_lint without arguments runs the linters defined in `linters_by_ft`
