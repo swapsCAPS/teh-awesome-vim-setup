@@ -58,6 +58,7 @@ return {
     opts = {
       mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
       separator = "─",
+      max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
     },
   },
 }

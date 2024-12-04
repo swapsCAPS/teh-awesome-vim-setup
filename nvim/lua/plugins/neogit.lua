@@ -14,7 +14,7 @@ return {
       desc = "Open NeoGit",
     },
   },
-  config = function()
-    require("neogit").setup({})
+  opts = function()
+    return {}
   end,
 }

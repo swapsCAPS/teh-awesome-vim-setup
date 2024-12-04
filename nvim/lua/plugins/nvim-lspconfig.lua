@@ -18,11 +18,15 @@ return {
 
     lspconfig.docker_compose_language_service.setup({})
 
+    lspconfig.jsonls.setup({})
+
     lspconfig.yamlls.setup({})
 
     lspconfig.dockerls.setup({})
 
     lspconfig.gopls.setup({})
+
+    lspconfig.pylsp.setup({})
 
     lspconfig.rust_analyzer.setup({
       settings = {

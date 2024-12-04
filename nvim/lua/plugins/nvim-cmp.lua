@@ -1,14 +1,15 @@
 return {
   "hrsh7th/nvim-cmp",
+  event = "BufEnter",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
     "lukas-reineke/cmp-rg",
     "f3fora/cmp-spell",
   },
-  lazy = true,
   opts = function()
     local cmp = require("cmp")
 
@@ -48,7 +49,7 @@ return {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<Tab>"] = cmp.mapping(OnTab, { "i", "s" }),
-        ["<Shift-Tab>"] = cmp.mapping(OnShiftTab, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(OnShiftTab, { "i", "s" }),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
