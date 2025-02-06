@@ -3,12 +3,30 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "master",
     dependencies = {
-      "nvim-lua/plenary.nvim",
+      { "nvim-lua/plenary.nvim" },
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        version = "^1.0.0",
+      },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+      },
     },
-    lazy = true,
-    opts = function()
+    config = function()
       local actions = require("telescope.actions")
-      return {
+      local lga_actions = require("telescope-live-grep-args.actions")
+
+      local opts = {
+        extensions = {
+          live_grep_args = {
+            mappings = {
+              i = {
+                ["<C-space>"] = lga_actions.to_fuzzy_refine,
+              },
+            },
+          },
+        },
         defaults = {
           layout_strategy = "vertical",
           layout_config = {
@@ -32,6 +50,13 @@ return {
           },
         },
       }
+
+      local telescope = require("telescope")
+
+      telescope.setup(opts)
+
+      telescope.load_extension("fzf")
+      telescope.load_extension("live_grep_args")
     end,
     keys = {
       {
@@ -84,16 +109,5 @@ return {
         desc = "Telescope LSP references (usages)",
       },
     },
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
-    lazy = true,
-    init = function()
-      require("telescope").load_extension("fzf")
-    end,
   },
 }
