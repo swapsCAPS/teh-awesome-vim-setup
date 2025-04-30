@@ -5,6 +5,7 @@ local language_servers = {
   "docker_compose_language_service",
   "dockerls",
   "emmet_language_server",
+  "gopls",
   "helm_ls",
   -- Note: Java stuff is installed using nvim-java
   "jinja_lsp",
@@ -27,6 +28,9 @@ return {
       opts = {
         ensure_installed = language_servers,
       },
+    },
+    {
+      "b0o/schemastore.nvim",
     },
   },
   config = function()
@@ -91,14 +95,23 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.jsonls.setup({
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    })
+
+    lspconfig.yamlls.setup({
+      filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.ghaction" },
+    })
+
     local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
-
-    lspconfig.yamlls.setup({
-      filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.ghaction" },
-    })
   end,
 }

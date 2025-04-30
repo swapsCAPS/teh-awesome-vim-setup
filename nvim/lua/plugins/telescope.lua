@@ -13,6 +13,7 @@ return {
         build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
       },
     },
+    cmd = "Telescope",
     config = function()
       local actions = require("telescope.actions")
       local lga_actions = require("telescope-live-grep-args.actions")
@@ -59,29 +60,29 @@ return {
       telescope.load_extension("live_grep_args")
     end,
     keys = {
+      -- {
+      --   "<C-P>",
+      --   function()
+      --     require("telescope.builtin").git_files()
+      --   end,
+      --   desc = "git files",
+      -- },
       {
         "<C-P>",
         function()
-          require("telescope.builtin").git_files()
-        end,
-        desc = "git files",
-      },
-      {
-        "<leader>ff",
-        function()
-          require("telescope.builtin").find_files({})
+          require("telescope.builtin").find_files({ hidden = true })
         end,
         desc = "find files",
       },
+      -- {
+      --   "<C-F>",
+      --   function()
+      --     require("telescope.builtin").live_grep()
+      --   end,
+      --   desc = "`rg` with `vimgrep_arguments`",
+      -- },
       {
         "<C-F>",
-        function()
-          require("telescope.builtin").live_grep()
-        end,
-        desc = "`rg` with `vimgrep_arguments`",
-      },
-      {
-        "<leader>fa",
         function()
           require("telescope.builtin").grep_string({ search = "" })
         end,
@@ -93,13 +94,6 @@ return {
           require("telescope.builtin").buffers()
         end,
         desc = "Telescope open buffers",
-      },
-      {
-        "<leader>fh",
-        function()
-          require("telescope.builtin").help_tags()
-        end,
-        desc = "Telescope help tags",
       },
       {
         "gu",

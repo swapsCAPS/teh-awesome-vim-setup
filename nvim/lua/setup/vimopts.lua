@@ -17,7 +17,7 @@ vim.opt.linebreak = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.wrap = true
-vim.opt.listchars = { trail = "·", tab = "» " }
+vim.opt.listchars = { lead = "·", trail = "·", tab = "» " }
 vim.opt.foldlevel = 99
 vim.opt.mousescroll = "ver:1,hor:1" -- TODO invert horizontal scrolling
 
