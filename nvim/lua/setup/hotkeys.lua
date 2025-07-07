@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, { desc = "vim.diagn
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "vim.lsp.buf.code_action" })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, { desc = "Format buffer using LSP" })
+-- vim.keymap.set("n", "S-k", vim.lsp.buf.hover, { desc = "Hover" })
 
 vim.keymap.set("n", "<leader>oi", function()
   vim.lsp.buf.execute_command({

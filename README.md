@@ -14,11 +14,25 @@ nvim
 
 ### Dependencies
 
+#### mise config
+
+```toml
+# ~/.config/mise/config.toml
+
+[tools]
+node = '22'
+python = '3.12'
+go = "1.24.4"
+java = "openjdk-21"
+ruby = "3.2"
+```
+
 This is probably incomplete
 
 ```
 spellcheck
 luarocks
+rust
 ```
 
 ### Installing spell files
