@@ -13,7 +13,6 @@ return {
         build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
       },
     },
-    cmd = "Telescope",
     config = function()
       local actions = require("telescope.actions")
       local lga_actions = require("telescope-live-grep-args.actions")
@@ -59,6 +58,7 @@ return {
       telescope.load_extension("fzf")
       telescope.load_extension("live_grep_args")
     end,
+    cmd = "Telescope",
     keys = {
       -- {
       --   "<C-P>",

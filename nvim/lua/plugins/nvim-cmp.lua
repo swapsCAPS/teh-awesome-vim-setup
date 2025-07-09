@@ -1,17 +1,16 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "BufEnter",
+  event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
     "lukas-reineke/cmp-rg",
-    "f3fora/cmp-spell",
+    "onsails/lspkind.nvim",
   },
   opts = function()
     local cmp = require("cmp")
+    local lspkind = require("lspkind")
 
     -- https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
     local has_words_before = function()
@@ -27,8 +26,6 @@ return {
     function OnTab(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif vim.fn["vsnip#available"](1) == 1 then
-        feedkey("<Plug>(vsnip-expand-or-jump)", "")
       elseif has_words_before() then
         cmp.complete()
       else
@@ -39,8 +36,6 @@ return {
     function OnShiftTab()
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif vim.fn["vsnip#jumpable"](-1) == 1 then
-        feedkey("<Plug>(vsnip-jump-prev)", "")
       end
     end
 
@@ -62,13 +57,27 @@ return {
         end,
       }),
 
-      sources = cmp.config.sources({ { name = "nvim_lsp" } }, { { name = "buffer" } }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+        { name = "path" },
+        { name = "rg" },
+      }),
 
-      snippet = {
-        expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body)
-        end,
+      formatting = {
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          menu = {
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+          },
+        }),
       },
+
+      snippet = {},
     }
   end,
 }
