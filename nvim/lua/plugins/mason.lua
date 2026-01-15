@@ -25,6 +25,32 @@ return {
   },
   dependencies = {
     { "mason-org/mason.nvim", opts = {} },
-    "neovim/nvim-lspconfig",
+    {
+      "neovim/nvim-lspconfig",
+      config = function()
+        vim.lsp.config("yamlls", {
+          settings = {
+            yaml = {
+              schemaStore = { enable = true },
+              schemas = {
+                ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+              },
+            },
+          },
+        })
+
+        vim.lsp.config("helm_ls", {
+          settings = {
+            yamlls = {
+              path = "yaml-language-server",
+              config = {
+                hover = false,
+              },
+            },
+          },
+        })
+        return {}
+      end,
+    },
   },
 }

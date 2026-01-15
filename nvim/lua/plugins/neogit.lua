@@ -1,3 +1,8 @@
+local function open()
+  require("neogit").open()
+  is_open = false
+end
+
 return {
   "NeogitOrg/neogit",
   dependencies = {
@@ -9,9 +14,12 @@ return {
   keys = {
     {
       "<leader>ng",
-      function()
-        require("neogit").open()
-      end,
+      open,
+      desc = "Open NeoGit",
+    },
+    {
+      "<F3>",
+      open,
       desc = "Open NeoGit",
     },
   },
