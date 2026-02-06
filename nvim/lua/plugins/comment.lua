@@ -3,7 +3,7 @@ return {
   event = "BufEnter",
   opts = {
     toggler = {
-      line = "<C-_>",
+      line = "<C-/>",
     },
     opleader = {
       line = "<C-_>",
