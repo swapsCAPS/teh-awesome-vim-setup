@@ -6,7 +6,7 @@ return {
       line = "<C-/>",
     },
     opleader = {
-      line = "<C-_>",
+      line = "<C-/>",
     },
   },
 }
