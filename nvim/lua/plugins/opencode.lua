@@ -1,10 +1,23 @@
 return {
   "NickvanDyke/opencode.nvim",
+  commit = "8804ffb",
   dependencies = {
     -- Recommended for `ask()` and `select()`.
     -- Required for `snacks` provider.
     ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
     { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+    {
+      "e-cal/opencode-tmux.nvim",
+      opts = {
+        options = "-h",
+        focus = false,
+        auto_close = false,
+        allow_passthrough = false,
+        find_sibling = true,
+        connect_keymap = "<leader>O",
+        connect_launch = false,
+      },
+    },
   },
   config = function()
     ---@type opencode.Opts
@@ -39,14 +52,5 @@ return {
     vim.keymap.set("n", "<S-C-d>", function()
       require("opencode").command("session.half.page.down")
     end, { desc = "Scroll opencode down" })
-
-    vim.g.opencode_opts = {
-      provider = {
-        enabled = "tmux",
-        tmux = {
-          -- ...
-        },
-      },
-    }
   end,
 }
