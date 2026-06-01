@@ -1,56 +1,71 @@
 return {
-  "NickvanDyke/opencode.nvim",
-  commit = "8804ffb",
-  dependencies = {
-    -- Recommended for `ask()` and `select()`.
-    -- Required for `snacks` provider.
-    ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
-    { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+  "simonwinther/opencode-tmux.nvim",
+  name = "opencode-tmux",
+  version = "*", -- use latest stable release (recommended)
+
+  keys = {
     {
-      "e-cal/opencode-tmux.nvim",
-      opts = {
-        options = "-h",
-        focus = false,
-        auto_close = false,
-        allow_passthrough = false,
-        find_sibling = true,
-        connect_keymap = "<leader>O",
-        connect_launch = false,
-      },
+      "<leader>oo",
+      function()
+        require("opencode-tmux").tmux_toggle()
+      end,
+      mode = { "n", "v" },
+      desc = "Toggle OpenCode pane",
+    },
+    {
+      "go",
+      function()
+        require("opencode-tmux").send()
+      end,
+      mode = { "n", "v" },
+      desc = "Send to OpenCode",
+    },
+    {
+      "<leader>oB",
+      function()
+        require("opencode-tmux").send_buffer()
+      end,
+      desc = "Send buffer with prompt",
+    },
+    {
+      "<leader>op",
+      function()
+        require("opencode-tmux").select_prompt()
+      end,
+      mode = { "n", "v" },
+      desc = "Pick a prompt",
+    },
+    {
+      "<leader>oa",
+      function()
+        require("opencode-tmux").ask({ submit = true })
+      end,
+      mode = { "n", "v" },
+      desc = "Ask OpenCode",
+    },
+    {
+      "<leader>os",
+      function()
+        require("opencode-tmux").submit_prompt()
+      end,
+      desc = "Submit OpenCode prompt",
+    },
+    {
+      "<leader>oc",
+      function()
+        require("opencode-tmux").clear_prompt()
+      end,
+      desc = "Clear OpenCode prompt",
     },
   },
+
   config = function()
-    ---@type opencode.Opts
-    vim.g.opencode_opts = {
-      -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition" on the type or field.
-    }
-
-    -- Required for `opts.events.reload`.
-    vim.o.autoread = true
-
-    -- Recommended/example keymaps.
-    vim.keymap.set({ "n", "x" }, "<S-C-o>", function()
-      require("opencode").ask("@this: ", { submit = true })
-    end, { desc = "Ask opencode…" })
-    vim.keymap.set({ "n", "x" }, "<S-C-x>", function()
-      require("opencode").select()
-    end, { desc = "Execute opencode action…" })
-    vim.keymap.set({ "n", "t" }, "<C-.>", function()
-      require("opencode").toggle()
-    end, { desc = "Toggle opencode" })
-
-    vim.keymap.set({ "n", "x" }, "go", function()
-      return require("opencode").operator("@this ")
-    end, { desc = "Add range to opencode", expr = true })
-    vim.keymap.set("n", "goo", function()
-      return require("opencode").operator("@this ") .. "_"
-    end, { desc = "Add line to opencode", expr = true })
-
-    vim.keymap.set("n", "<S-C-u>", function()
-      require("opencode").command("session.half.page.up")
-    end, { desc = "Scroll opencode up" })
-    vim.keymap.set("n", "<S-C-d>", function()
-      require("opencode").command("session.half.page.down")
-    end, { desc = "Scroll opencode down" })
+    require("opencode-tmux").setup({
+      port = 4096,
+      split = "h", -- "h" side-by-side, "v" stacked
+      size = 40, -- pane size in %
+      compact_context = false, -- skip code block fences to save tokens
+      code_fence = "backticks", -- "backticks", "xml", or { open, close }
+    })
   end,
 }
