@@ -1,12 +1,11 @@
 return {
-  "numToStr/Comment.nvim",
-  event = "BufEnter",
+  "nvim-mini/mini.comment",
+  version = "*",
+  keys = { "<C-/>", "gc" },
   opts = {
-    toggler = {
-      line = "<C-/>",
-    },
-    opleader = {
-      line = "<C-/>",
+    mappings = {
+      comment_line = "<C-/>",
+      comment_visual = "<C-/>",
     },
   },
 }

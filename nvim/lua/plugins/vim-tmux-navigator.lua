@@ -1,4 +1,4 @@
 return {
-  "christoomey/vim-tmux-navigator",
-  lazy = false,
+  "knubie/vim-kitty-navigator",
+  event = "VeryLazy",
 }

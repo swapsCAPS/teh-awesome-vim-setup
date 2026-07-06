@@ -3,7 +3,7 @@ return {
   enabled = true,
   event = "InsertEnter",
   config = function()
-    vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+    vim.keymap.set("i", "<C-S-J>", 'copilot#Accept("\\<CR>")', {
       expr = true,
       replace_keycodes = false,
     })

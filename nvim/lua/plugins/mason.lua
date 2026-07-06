@@ -19,7 +19,7 @@ local language_servers = {
 
 return {
   "mason-org/mason-lspconfig.nvim",
-  event = "BufEnter",
+  event = "VeryLazy",
   opts = {
     ensure_installed = language_servers,
   },

@@ -1,76 +1,22 @@
--- nvim-treesitter wraps the Neovim treesitter API to provide functionalities
--- such as highlighting and incremental selection, and a command to easily
--- install parsers.
---
--- The docs state:
--- The goal of nvim-treesitter is both to provide a simple and easy way to use
--- the interface for tree-sitter in Neovim and to provide some basic
--- functionality such as highlighting based on it
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = false,
-    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-    opts = {},
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup({
-        modules = {},
-        sync_install = false,
-        ignore_install = {},
-        auto_install = true,
-        ensure_installed = {
-          "arduino",
-          "bash",
-          "bicep",
-          "dockerfile",
-          "editorconfig",
-          "go",
-          "gotmpl",
-          "graphql",
-          "html",
-          "java",
-          "javascript",
-          "jq",
-          "jsdoc",
-          "json",
-          "json5",
-          "jsonnet",
-          "helm",
-          "kotlin",
-          "lua",
-          "markdown",
-          "markdown_inline",
-          "powershell",
-          "python",
-          "properties",
-          "query",
-          "rust",
-          "svelte",
-          "terraform",
-          "tmux",
-          "toml",
-          "typescript",
-          "vim",
-          "vimdoc",
-          "xml",
-          "yaml",
-        },
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    lazy = false,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = {
-      mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
-      separator = "─",
-      max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    },
+  "nvim-treesitter/nvim-treesitter-context",
+  event = "VeryLazy",
+  -- event = {
+  --   "BufEnter *.md",
+  --   "BufEnter *.lua",
+  --   "BufEnter *.ts",
+  --   "BufEnter *.py",
+  --   "BufEnter *.rs",
+  --   "BufEnter *.go",
+  --   "BufEnter *.rb",
+  --   "BufEnter *.json",
+  --   "BufEnter *.yaml",
+  --   "BufEnter *.yml",
+  --   "BufEnter *.conf",
+  -- },
+  opts = {
+    mode = "topline", -- Line used to calculate context. Choices: 'cursor', 'topline'
+    separator = "─",
+    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
   },
 }
