@@ -1,6 +1,12 @@
 return {
+  dependencies = {
+    "arborist-ts/arborist.nvim",
+    opts = {
+      update_cadence = "weekly",
+    },
+  },
   "nvim-treesitter/nvim-treesitter-context",
-  event = "VeryLazy",
+  -- event = "VeryLazy",
   -- event = {
   --   "BufEnter *.md",
   --   "BufEnter *.lua",
