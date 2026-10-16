@@ -41,14 +41,14 @@ return {
 
         vim.lsp.config("helm_ls", {
           settings = {
-            yamlls = {
-              path = "yaml-language-server",
-              config = {
-                hover = false,
+            ["helm-ls"] = {
+              yamlls = {
+                path = "yaml-language-server",
               },
             },
           },
         })
+
         return {}
       end,
     },
