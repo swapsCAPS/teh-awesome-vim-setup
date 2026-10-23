@@ -14,6 +14,9 @@ vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format, { desc = "Format buffer using LSP" })
 -- vim.keymap.set("n", "S-k", vim.lsp.buf.hover, { desc = "Hover" })
 
+vim.keymap.set({ "n", "v" }, "<C-S-[>", "zc", { desc = "Close fold" })
+vim.keymap.set({ "n", "v" }, "<C-S-]>", "zo", { desc = "Open fold" })
+
 vim.keymap.set("n", "<leader>oi", function()
   vim.lsp.buf.execute_command({
     command = "_typescript.organizeImports",
