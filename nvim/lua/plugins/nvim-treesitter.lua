@@ -2,7 +2,10 @@ return {
   dependencies = {
     "arborist-ts/arborist.nvim",
     opts = {
-      update_cadence = "weekly",
+      -- Security: automatic_install clones an unpinned grammar and cc-compiles it
+      -- when you open an unknown filetype. Use :ArboristInstall <lang> instead.
+      update_cadence = "manual",
+      automatic_install = false,
     },
   },
   "nvim-treesitter/nvim-treesitter-context",

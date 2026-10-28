@@ -24,7 +24,17 @@ return {
     ensure_installed = language_servers,
   },
   dependencies = {
-    { "mason-org/mason.nvim", opts = {} },
+    {
+      "mason-org/mason.nvim",
+      opts = {
+        -- Security: left unpinned, Mason refreshes this registry every 24h and
+        -- ensure_installed silently re-resolves to whatever upstream published.
+        -- Bump this string deliberately, the same way you bump lazy-lock.json.
+        registries = { "github:mason-org/mason-registry@2026-10-27-human-horror" },
+        -- socket.dev scanning for the npm/pypi/cargo install paths.
+        firewall = { enabled = true },
+      },
+    },
     {
       "neovim/nvim-lspconfig",
       config = function()
